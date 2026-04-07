@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="port_recycler_view_container_items_vertical_space">30</integer>
+    <integer name="port_recycler_view_container_items_horizontal_space">1</integer>
+    <integer name="land_recycler_view_container_items_vertical_space">30</integer>
+    <integer name="land_recycler_view_container_items_horizontal_space">14</integer>
+</resources>

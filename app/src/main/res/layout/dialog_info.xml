@@ -1,0 +1,1465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    app:layout_constraintBottom_toBottomOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:text="@string/wifi_upgrade_suggestion_due_to_wifi_null_title"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/large_sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_info" />
+
+        <ScrollView
+            android:id="@+id/notes_scroll_view"
+            style="@style/dialog_scrollbar_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+                <TextView
+                    android:id="@+id/tv_message"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:text="@string/wifi_disconnected_messgae"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <!-- special character custom dialog view -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/special_character_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/notes_scroll_view">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edit_name_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:hint="@string/device_name"
+                android:textColorHint="@color/light_gray"
+                app:boxStrokeColor="@color/edit_text_selector"
+                app:hintTextColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_name_text"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textFilter"
+                    android:textColor="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Save camera settings layout-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/preset_name_save_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fw_update_layout">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edit_preset_name_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:hint="@string/preset_name"
+                android:textColorHint="@color/light_gray"
+                app:boxStrokeColor="@color/edit_text_selector"
+                app:hintTextColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_preset_name_text"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textFilter"
+                    android:textColor="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/txt_save_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/button_stroke_black"
+            android:gravity="center"
+            android:text="@string/save"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/special_character_layout" />
+
+        <TextView
+            android:id="@+id/opsin_proceed_update_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center_horizontal"
+            android:text="@string/proceed_with_update"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/notes_scroll_view" />
+
+        <!--fw update details layout-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fw_update_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/opsin_proceed_update_text">
+
+            <!-- nightwave fw update layout-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/nw_fw_update_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/firmware_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:gravity="start"
+                    android:text="@string/firmware_type"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline1"
+                    app:layout_constraintStart_toEndOf="@id/guideline1"
+                    app:layout_constraintStart_toStartOf="@+id/guideline4"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/current_version_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:gravity="start"
+                    android:text="@string/current_version"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                    app:layout_constraintStart_toEndOf="@+id/guideline2"
+                    app:layout_constraintStart_toStartOf="@+id/guideline1"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/new_version_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:gravity="start"
+                    android:text="@string/new_version"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline3"
+                    app:layout_constraintStart_toEndOf="@+id/guideline3"
+                    app:layout_constraintStart_toStartOf="@+id/guideline2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!--    top version-->
+                <TextView
+                    android:id="@+id/top_version"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:gravity="start"
+                    android:text="@string/top_version"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline1"
+                    app:layout_constraintStart_toEndOf="@id/guideline1"
+                    app:layout_constraintStart_toStartOf="@+id/guideline4"
+                    app:layout_constraintTop_toBottomOf="@+id/firmware_title" />
+
+                <TextView
+                    android:id="@+id/top_version_current"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:gravity="start"
+                    android:text=""
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                    app:layout_constraintStart_toEndOf="@+id/guideline2"
+                    app:layout_constraintStart_toStartOf="@+id/guideline1"
+                    app:layout_constraintTop_toBottomOf="@+id/current_version_title" />
+
+                <TextView
+                    android:id="@+id/top_version_new"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:gravity="start"
+                    android:text=""
+                    android:textAlignment="textStart"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline3"
+                    app:layout_constraintStart_toEndOf="@+id/guideline3"
+                    app:layout_constraintStart_toStartOf="@+id/guideline2"
+                    app:layout_constraintTop_toBottomOf="@+id/new_version_title" />
+
+                <!--    fpga version-->
+                <TextView
+                    android:id="@+id/fpga_version"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:gravity="start"
+                    android:text="@string/fpga"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline1"
+                    app:layout_constraintStart_toEndOf="@id/guideline1"
+                    app:layout_constraintStart_toStartOf="@+id/guideline4"
+                    app:layout_constraintTop_toBottomOf="@+id/top_version" />
+
+                <TextView
+                    android:id="@+id/fpga_version_current"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:gravity="start"
+                    android:text=""
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                    app:layout_constraintStart_toEndOf="@+id/guideline2"
+                    app:layout_constraintStart_toStartOf="@+id/guideline1"
+                    app:layout_constraintTop_toBottomOf="@+id/top_version" />
+
+                <TextView
+                    android:id="@+id/fpga_version_new"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:gravity="start"
+                    android:text=""
+                    android:textAlignment="textStart"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline3"
+                    app:layout_constraintStart_toEndOf="@+id/guideline3"
+                    app:layout_constraintStart_toStartOf="@+id/guideline2"
+                    app:layout_constraintTop_toBottomOf="@+id/top_version" />
+
+                <!--    RISC_V version-->
+                <TextView
+                    android:id="@+id/riscv_version"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:gravity="start"
+                    android:text="@string/risc_v"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline1"
+                    app:layout_constraintStart_toEndOf="@id/guideline1"
+                    app:layout_constraintStart_toStartOf="@+id/guideline4"
+                    app:layout_constraintTop_toBottomOf="@+id/fpga_version" />
+
+                <TextView
+                    android:id="@+id/riscv_version_current"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:gravity="start"
+                    android:text=""
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                    app:layout_constraintStart_toEndOf="@+id/guideline2"
+                    app:layout_constraintStart_toStartOf="@+id/guideline1"
+                    app:layout_constraintTop_toBottomOf="@+id/fpga_version" />
+
+                <TextView
+                    android:id="@+id/riscv_version_new"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:gravity="start"
+                    android:text=""
+                    android:textAlignment="textStart"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline3"
+                    app:layout_constraintStart_toEndOf="@+id/guideline3"
+                    app:layout_constraintStart_toStartOf="@+id/guideline2"
+                    app:layout_constraintTop_toBottomOf="@+id/fpga_version" />
+
+                <!--    WI_FI RTOS version-->
+                <TextView
+                    android:id="@+id/wifi_version"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:gravity="start"
+                    android:text="@string/wi_fi_rtos"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline1"
+                    app:layout_constraintStart_toEndOf="@id/guideline1"
+                    app:layout_constraintStart_toStartOf="@+id/guideline4"
+                    app:layout_constraintTop_toBottomOf="@+id/riscv_version" />
+
+                <TextView
+                    android:id="@+id/wifi_version_current"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:gravity="start"
+                    android:text=""
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                    app:layout_constraintStart_toEndOf="@+id/guideline2"
+                    app:layout_constraintStart_toStartOf="@+id/guideline1"
+                    app:layout_constraintTop_toBottomOf="@+id/riscv_version_current" />
+
+                <TextView
+                    android:id="@+id/wifi_version_new"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:gravity="start"
+                    android:text=""
+                    android:textAlignment="textStart"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline3"
+                    app:layout_constraintStart_toEndOf="@+id/guideline3"
+                    app:layout_constraintStart_toStartOf="@+id/guideline2"
+                    app:layout_constraintTop_toBottomOf="@+id/riscv_version_new" />
+
+                <TextView
+                    android:id="@+id/proceed_update_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/proceed_with_update"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintEnd_toEndOf="@+id/guideline3"
+                    app:layout_constraintStart_toStartOf="@+id/guideline4"
+                    app:layout_constraintTop_toBottomOf="@+id/wifi_version" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.29" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.62" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.95" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.05" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- opsin fw update status layout-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/opsin_fw_status_bar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/rect_shape_background"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/opsin_statusbar_guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/opsin_statusbar_guideline_start"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/wifi"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:padding="1dp"
+                        android:singleLine="true"
+                        android:text="@string/wifi"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/small_sp"
+                        app:layout_constraintEnd_toStartOf="@+id/ble"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="0dp"
+                        android:background="@color/black"
+                        app:layout_constraintBottom_toBottomOf="@+id/wifi"
+                        app:layout_constraintStart_toEndOf="@+id/wifi"
+                        app:layout_constraintTop_toTopOf="@+id/wifi" />
+
+                    <TextView
+                        android:id="@+id/ble"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:ellipsize="end"
+                        android:padding="1dp"
+                        android:singleLine="true"
+                        android:text="@string/ble"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/small_sp"
+                        app:layout_constraintEnd_toStartOf="@+id/core"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/wifi"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="0dp"
+                        android:background="@color/black"
+                        app:layout_constraintBottom_toBottomOf="@+id/ble"
+                        app:layout_constraintStart_toEndOf="@+id/ble"
+                        app:layout_constraintTop_toTopOf="@+id/ble" />
+
+                    <TextView
+                        android:id="@+id/core"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:ellipsize="end"
+                        android:padding="1dp"
+                        android:singleLine="true"
+                        android:text="@string/core"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/small_sp"
+                        app:layout_constraintEnd_toStartOf="@+id/riscv"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/ble"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="0dp"
+                        android:background="@color/black"
+                        app:layout_constraintBottom_toBottomOf="@+id/core"
+                        app:layout_constraintStart_toEndOf="@+id/core"
+                        app:layout_constraintTop_toTopOf="@+id/core" />
+
+                    <TextView
+                        android:id="@+id/riscv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:ellipsize="end"
+                        android:padding="1dp"
+                        android:singleLine="true"
+                        android:text="@string/risc_v"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/small_sp"
+                        app:layout_constraintEnd_toStartOf="@+id/overlay"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/core"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="0dp"
+                        android:background="@color/black"
+                        app:layout_constraintBottom_toBottomOf="@+id/riscv"
+                        app:layout_constraintStart_toEndOf="@+id/riscv"
+                        app:layout_constraintTop_toTopOf="@+id/riscv" />
+
+                    <TextView
+                        android:id="@+id/overlay"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:ellipsize="end"
+                        android:padding="1dp"
+                        android:singleLine="true"
+                        android:text="@string/overlay"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/small_sp"
+                        app:layout_constraintEnd_toStartOf="@+id/recovery"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/riscv"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="0dp"
+                        android:background="@color/black"
+                        app:layout_constraintBottom_toBottomOf="@+id/overlay"
+                        app:layout_constraintStart_toEndOf="@+id/overlay"
+                        app:layout_constraintTop_toTopOf="@+id/overlay" />
+
+                    <TextView
+                        android:id="@+id/recovery"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:ellipsize="end"
+                        android:padding="1dp"
+                        android:singleLine="true"
+                        android:text="@string/recovery"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/small_sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/overlay"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="0dp"
+                        android:background="@color/black"
+                        app:layout_constraintBottom_toBottomOf="@+id/recovery"
+                        app:layout_constraintStart_toEndOf="@+id/recovery"
+                        app:layout_constraintTop_toTopOf="@+id/recovery" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/opsin_progress_status_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/opsin_fw_status_bar"
+                app:layout_constraintStart_toEndOf="@+id/opsin_fw_status_bar"
+                app:layout_constraintTop_toTopOf="@+id/opsin_fw_status_bar" />
+
+            <!-- opsin fw update layout-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/opsin_fw_update_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/opsin_fw_status_bar">
+
+                <TextView
+                    android:id="@+id/opsin_firmware_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="start"
+                    android:text="@string/component_type"
+                    android:textAlignment="viewStart"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/opsin_current_version_title"
+                    app:layout_constraintStart_toStartOf="@+id/opsin_guideline4"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/opsin_current_version_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="start"
+                    android:text="@string/current_version"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/opsin_guideline2"
+                    app:layout_constraintStart_toEndOf="@+id/opsin_guideline2"
+                    app:layout_constraintStart_toStartOf="@+id/opsin_guideline1"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/opsin_new_version_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="start"
+                    android:text="@string/new_version"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/opsin_guideline3"
+                    app:layout_constraintStart_toEndOf="@+id/opsin_guideline3"
+                    app:layout_constraintStart_toStartOf="@+id/opsin_guideline2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/opsin_status_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:gravity="start"
+                    android:text="@string/status"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/opsin_guideline5"
+                    app:layout_constraintStart_toEndOf="@+id/opsin_guideline5"
+                    app:layout_constraintStart_toStartOf="@+id/opsin_guideline3"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ScrollView
+                    android:id="@+id/item_scroll_view"
+                    style="@style/dialog_scrollbar_style"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/opsin_firmware_title">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp">
+
+                        <!--    WI_FI RTOS version-->
+                        <TextView
+                            android:id="@+id/opsin_wifi_version"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:gravity="start"
+                            android:text="@string/wi_fi_rtos"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"
+                            app:layout_constraintEnd_toStartOf="@+id/scroll_view_opsin_guideline1"
+                            app:layout_constraintStart_toEndOf="@id/scroll_view_opsin_guideline1"
+                            app:layout_constraintStart_toStartOf="@+id/scroll_view_opsin_guideline4"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/opsin_wifi_version_current"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:gravity="start"
+                            android:text=""
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:minLines="1"
+                            app:layout_constraintEnd_toStartOf="@+id/scroll_view_opsin_guideline2"
+                            app:layout_constraintStart_toEndOf="@+id/scroll_view_opsin_guideline2"
+                            app:layout_constraintStart_toStartOf="@+id/scroll_view_opsin_guideline1"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/opsin_wifi_version_new"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:gravity="start"
+                            android:text=""
+                            android:textAlignment="textStart"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"
+                            app:layout_constraintEnd_toEndOf="@+id/scroll_view_opsin_guideline3"
+                            app:layout_constraintStart_toEndOf="@+id/scroll_view_opsin_guideline3"
+                            app:layout_constraintStart_toStartOf="@+id/scroll_view_opsin_guideline2"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/opsin_wifi_status"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:ellipsize="end"
+                            android:gravity="start"
+                            android:singleLine="true"
+                            android:textAlignment="textStart"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"
+                            app:layout_constraintEnd_toEndOf="@+id/scroll_view_opsin_guideline5"
+                            app:layout_constraintStart_toEndOf="@+id/scroll_view_opsin_guideline5"
+                            app:layout_constraintStart_toStartOf="@+id/scroll_view_opsin_guideline3"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <!--Bluetooth version-->
+                        <TextView
+                            android:id="@+id/opsin_bluetooth_version"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:gravity="start"
+                            android:text="@string/bluetooth"
+                            android:textAlignment="textStart"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"
+                            app:layout_constraintEnd_toStartOf="@+id/scroll_view_opsin_guideline1"
+                            app:layout_constraintStart_toEndOf="@id/scroll_view_opsin_guideline1"
+                            app:layout_constraintStart_toStartOf="@+id/scroll_view_opsin_guideline4"
+                            app:layout_constraintTop_toBottomOf="@+id/opsin_wifi_version" />
+
+                        <TextView
+                            android:id="@+id/opsin_bluetooth_version_current"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:gravity="start"
+                            android:text=""
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"
+                            app:layout_constraintEnd_toStartOf="@+id/scroll_view_opsin_guideline2"
+                            app:layout_constraintStart_toEndOf="@+id/scroll_view_opsin_guideline2"
+                            app:layout_constraintStart_toStartOf="@+id/scroll_view_opsin_guideline1"
+                            app:layout_constraintTop_toBottomOf="@+id/opsin_wifi_version_current" />
+
+                        <TextView
+                            android:id="@+id/opsin_bluetooth_version_new"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:gravity="start"
+                            android:text=""
+                            android:textAlignment="textStart"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"
+                            app:layout_constraintEnd_toEndOf="@+id/scroll_view_opsin_guideline3"
+                            app:layout_constraintStart_toEndOf="@+id/scroll_view_opsin_guideline3"
+                            app:layout_constraintStart_toStartOf="@+id/scroll_view_opsin_guideline2"
+                            app:layout_constraintTop_toBottomOf="@+id/opsin_wifi_version_new" />
+
+                        <TextView
+                            android:id="@+id/opsin_bluetooth_status"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:gravity="start"
+                            android:text=""
+                            android:textAlignment="textStart"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"
+                            app:layout_constraintEnd_toEndOf="@+id/scroll_view_opsin_guideline5"
+                            app:layout_constraintStart_toEndOf="@+id/scroll_view_opsin_guideline5"
+                            app:layout_constraintStart_toStartOf="@+id/scroll_view_opsin_guideline3"
+                            app:layout_constraintTop_toBottomOf="@+id/opsin_wifi_version_new" />
+
+                        <!--    fpga version-->
+                        <TextView
+                            android:id="@+id/opsin_fpga_version"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:gravity="start"
+                            android:text="@string/fpga"
+                            android:textAlignment="textStart"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"
+                            app:layout_constraintEnd_toStartOf="@+id/scroll_view_opsin_guideline1"
+                            app:layout_constraintStart_toEndOf="@id/scroll_view_opsin_guideline1"
+                            app:layout_constraintStart_toStartOf="@+id/scroll_view_opsin_guideline4"
+                            app:layout_constraintTop_toBottomOf="@+id/opsin_bluetooth_version" />
+
+                        <TextView
+                            android:id="@+id/opsin_fpga_version_current"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:gravity="start"
+                            android:text=""
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"
+                            app:layout_constraintEnd_toStartOf="@+id/scroll_view_opsin_guideline2"
+                            app:layout_constraintStart_toEndOf="@+id/scroll_view_opsin_guideline2"
+                            app:layout_constraintStart_toStartOf="@+id/scroll_view_opsin_guideline1"
+                            app:layout_constraintTop_toBottomOf="@+id/opsin_bluetooth_version_current" />
+
+                        <TextView
+                            android:id="@+id/opsin_fpga_version_new"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:gravity="start"
+                            android:text=""
+                            android:textAlignment="textStart"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"
+                            app:layout_constraintEnd_toEndOf="@+id/scroll_view_opsin_guideline3"
+                            app:layout_constraintStart_toEndOf="@+id/scroll_view_opsin_guideline3"
+                            app:layout_constraintStart_toStartOf="@+id/scroll_view_opsin_guideline2"
+                            app:layout_constraintTop_toBottomOf="@+id/opsin_bluetooth_version_new" />
+
+                        <TextView
+                            android:id="@+id/opsin_fpga_status"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:gravity="start"
+                            android:text=""
+                            android:textAlignment="textStart"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"
+                            app:layout_constraintEnd_toEndOf="@+id/scroll_view_opsin_guideline5"
+                            app:layout_constraintStart_toEndOf="@+id/scroll_view_opsin_guideline5"
+                            app:layout_constraintStart_toStartOf="@+id/scroll_view_opsin_guideline3"
+                            app:layout_constraintTop_toBottomOf="@+id/opsin_bluetooth_version_new" />
+
+                        <!--    RISC_V version-->
+                        <TextView
+                            android:id="@+id/opsin_riscv_version"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:gravity="start"
+                            android:text="@string/risc_v"
+                            android:textAlignment="textStart"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"
+                            app:layout_constraintEnd_toStartOf="@+id/scroll_view_opsin_guideline1"
+                            app:layout_constraintStart_toEndOf="@id/scroll_view_opsin_guideline1"
+                            app:layout_constraintStart_toStartOf="@+id/scroll_view_opsin_guideline4"
+                            app:layout_constraintTop_toBottomOf="@+id/opsin_fpga_version" />
+
+                        <TextView
+                            android:id="@+id/opsin_riscv_version_current"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:gravity="start"
+                            android:text=""
+                            android:textAllCaps="false"
+                            android:singleLine="true"
+                            android:ellipsize="end"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"
+                            app:layout_constraintEnd_toStartOf="@+id/scroll_view_opsin_guideline2"
+                            app:layout_constraintStart_toEndOf="@+id/scroll_view_opsin_guideline2"
+                            app:layout_constraintStart_toStartOf="@+id/scroll_view_opsin_guideline1"
+                            app:layout_constraintTop_toBottomOf="@+id/opsin_fpga_version" />
+
+                        <TextView
+                            android:id="@+id/opsin_riscv_version_new"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:gravity="start"
+                            android:text=""
+                            android:textAlignment="textStart"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"
+                            app:layout_constraintEnd_toEndOf="@+id/scroll_view_opsin_guideline3"
+                            app:layout_constraintStart_toEndOf="@+id/scroll_view_opsin_guideline3"
+                            app:layout_constraintStart_toStartOf="@+id/scroll_view_opsin_guideline2"
+                            app:layout_constraintTop_toBottomOf="@+id/opsin_fpga_version" />
+
+                        <TextView
+                            android:id="@+id/opsin_riscv_status"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:gravity="start"
+                            android:text=""
+                            android:textAlignment="textStart"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"
+                            app:layout_constraintEnd_toEndOf="@+id/scroll_view_opsin_guideline5"
+                            app:layout_constraintStart_toEndOf="@+id/scroll_view_opsin_guideline5"
+                            app:layout_constraintStart_toStartOf="@+id/scroll_view_opsin_guideline3"
+                            app:layout_constraintTop_toBottomOf="@+id/opsin_fpga_version" />
+
+                        <!--    RISC_V Overlay version-->
+                        <TextView
+                            android:id="@+id/opsin_riscv_overlay_version"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:gravity="start"
+                            android:text="@string/risc_v_overlay"
+                            android:textAlignment="textStart"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"
+                            app:layout_constraintEnd_toStartOf="@+id/scroll_view_opsin_guideline1"
+                            app:layout_constraintStart_toEndOf="@id/scroll_view_opsin_guideline1"
+                            app:layout_constraintStart_toStartOf="@+id/scroll_view_opsin_guideline4"
+                            app:layout_constraintTop_toBottomOf="@+id/opsin_riscv_version" />
+
+                        <TextView
+                            android:id="@+id/opsin_riscv_overlay_version_current"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:gravity="start"
+                            android:text=""
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"
+                            android:singleLine="true"
+                            android:ellipsize="end"
+                            app:layout_constraintEnd_toStartOf="@+id/scroll_view_opsin_guideline2"
+                            app:layout_constraintStart_toEndOf="@+id/scroll_view_opsin_guideline2"
+                            app:layout_constraintStart_toStartOf="@+id/scroll_view_opsin_guideline1"
+                            app:layout_constraintTop_toBottomOf="@+id/opsin_riscv_version" />
+
+                        <TextView
+                            android:id="@+id/opsin_riscv_overlay_version_new"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:gravity="start"
+                            android:text=""
+                            android:textAlignment="textStart"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"
+                            app:layout_constraintEnd_toEndOf="@+id/scroll_view_opsin_guideline3"
+                            app:layout_constraintStart_toEndOf="@+id/scroll_view_opsin_guideline3"
+                            app:layout_constraintStart_toStartOf="@+id/scroll_view_opsin_guideline2"
+                            app:layout_constraintTop_toBottomOf="@+id/opsin_riscv_version" />
+
+                        <TextView
+                            android:id="@+id/opsin_riscv_overlay_status"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:gravity="start"
+                            android:text=""
+                            android:textAlignment="textStart"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"
+                            app:layout_constraintEnd_toEndOf="@+id/scroll_view_opsin_guideline5"
+                            app:layout_constraintStart_toEndOf="@+id/scroll_view_opsin_guideline5"
+                            app:layout_constraintStart_toStartOf="@+id/scroll_view_opsin_guideline3"
+                            app:layout_constraintTop_toBottomOf="@+id/opsin_riscv_version" />
+
+                        <!--    RISC_V Recovery version-->
+                        <TextView
+                            android:id="@+id/opsin_riscv_recovery_version"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:gravity="start"
+                            android:text="@string/risc_v_recovery"
+                            android:textAlignment="textStart"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"
+                            app:layout_constraintEnd_toStartOf="@+id/scroll_view_opsin_guideline1"
+                            app:layout_constraintStart_toEndOf="@id/scroll_view_opsin_guideline1"
+                            app:layout_constraintStart_toStartOf="@+id/scroll_view_opsin_guideline4"
+                            app:layout_constraintTop_toBottomOf="@+id/opsin_riscv_overlay_version" />
+
+                        <TextView
+                            android:id="@+id/opsin_riscv_recovery_version_current"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:gravity="start"
+                            android:text=""
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"
+                            android:singleLine="true"
+                            android:ellipsize="end"
+                            app:layout_constraintEnd_toStartOf="@+id/scroll_view_opsin_guideline2"
+                            app:layout_constraintStart_toEndOf="@+id/scroll_view_opsin_guideline2"
+                            app:layout_constraintStart_toStartOf="@+id/scroll_view_opsin_guideline1"
+                            app:layout_constraintTop_toBottomOf="@+id/opsin_riscv_overlay_version" />
+
+                        <TextView
+                            android:id="@+id/opsin_riscv_recovery_version_new"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:gravity="start"
+                            android:text=""
+                            android:textAlignment="textStart"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"
+                            app:layout_constraintEnd_toEndOf="@+id/scroll_view_opsin_guideline3"
+                            app:layout_constraintStart_toEndOf="@+id/scroll_view_opsin_guideline3"
+                            app:layout_constraintStart_toStartOf="@+id/scroll_view_opsin_guideline2"
+                            app:layout_constraintTop_toBottomOf="@+id/opsin_riscv_overlay_version" />
+
+                        <TextView
+                            android:id="@+id/opsin_riscv_recovery_status"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:gravity="start"
+                            android:text=""
+                            android:textAlignment="textStart"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size"
+                            app:layout_constraintEnd_toEndOf="@+id/scroll_view_opsin_guideline5"
+                            app:layout_constraintStart_toEndOf="@+id/scroll_view_opsin_guideline5"
+                            app:layout_constraintStart_toStartOf="@+id/scroll_view_opsin_guideline3"
+                            app:layout_constraintTop_toBottomOf="@+id/opsin_riscv_overlay_version" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/scroll_view_opsin_guideline1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.265" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/scroll_view_opsin_guideline2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.5" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/scroll_view_opsin_guideline3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.73" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/scroll_view_opsin_guideline5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.98" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/scroll_view_opsin_guideline4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.02" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </ScrollView>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/opsin_guideline1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.265" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/opsin_guideline2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/opsin_guideline3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.73" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/opsin_guideline5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.98" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/opsin_guideline4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.02" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/scroll_view_vertical_guideline_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9500" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/opsin_statusbar_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.02" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/opsin_statusbar_guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.85" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_okay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:src="@mipmap/ic_ok"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/img_cancel"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/preset_name_save_layout" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/img_okay"
+            app:layout_constraintTop_toBottomOf="@+id/preset_name_save_layout"
+            app:srcCompat="@mipmap/ic_cancel" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_notes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintTop_toBottomOf="@+id/fw_update_layout"
+            app:srcCompat="@drawable/ic_outline_notes" />
+
+        <TextView
+            android:id="@+id/txt_sdcard_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/button_stroke_black"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/txt_sionyx_app_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fw_update_layout" />
+
+        <TextView
+            android:id="@+id/txt_sionyx_app_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/button_stroke_black"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txt_sdcard_btn"
+            app:layout_constraintTop_toBottomOf="@+id/fw_update_layout" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/ic_info" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="7dp">
+
+            <TextView
+                android:id="@+id/NWD_software_update_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/software_update_title"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:id="@+id/NWD_current_version"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/software_update_version"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:visibility="gone"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="18dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/NWD_software_update_title" />
+
+            <TextView
+                android:id="@+id/NWD_software_update_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/software_update_message"
+                android:autoLink="web"
+                android:clickable="true"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:visibility="gone"
+                android:layout_marginStart="18dp"
+                android:layout_marginBottom="7dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/NWD_current_version" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/NWD_camera_reboot_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/camera_reboot_msg"
+            android:textAlignment="center"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/img_okay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/pwd_reset_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/reset_pwd"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:paddingBottom="12dp" />
+
+            <!-- Instructions -->
+            <TextView
+                android:id="@+id/tvInstructions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/firmware_dialog_message"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:lineSpacingExtra="2dp"
+                android:paddingBottom="16dp" />
+
+            <!-- Progress bar -->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:progress="0"
+                android:max="100"
+                android:progressDrawable="@drawable/progress_bar_drawable"/>
+
+            <!-- Percentage text -->
+            <TextView
+                android:id="@+id/tvPercentage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingTop="8dp" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

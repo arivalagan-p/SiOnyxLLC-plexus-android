@@ -1,0 +1,47 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">SIONYX</string>
+    <string name="app_title">libraryNightWave</string>
+
+
+    <string name="header_partial"><![CDATA["HTTP/1.1 %1$s%2$s
+Content-Length: %3$d
+Content-Type: %4$s
+
+"]]></string>
+
+    <string name="range_header"><![CDATA["--%1$s
+Content-Type: %2$s
+Content-Range: bytes %3$d-%4$d/%5$d
+
+"]]></string>
+
+    <string name="header"><![CDATA["HTTP/1.1 %1$s
+Server: lWS/1.0
+Accept-Ranges: bytes
+Content-Length: %2$d
+Last-Modified: %3$s
+Connection: close
+Content-Type: %4$s
+
+"]]></string>
+
+    <string name="boundary_string">da_zarasti_ono_romashkami</string>
+
+    <string name="rc500" tools:ignore="ExtraTranslation">500 Internal server error</string>
+    <string name="rc404" tools:ignore="ExtraTranslation">404 File not found</string>
+    <string name="rc403" tools:ignore="ExtraTranslation">403 Forbidden</string>
+    <string name="rc200" tools:ignore="ExtraTranslation">200 OK</string>
+    <string name="rc206" tools:ignore="ExtraTranslation">206 Partial Content</string>
+    <string name="rc416" tools:ignore="ExtraTranslation">416 Range Not Satisfiable</string>
+
+    <string name="pk_document_root" tools:ignore="ExtraTranslation">prefDocumentRoot</string>
+    <string name="pk_port" tools:ignore="ExtraTranslation">prefPort</string>
+    <string name="pk_pref_changed" tools:ignore="ExtraTranslation">prefChanged</string>
+    <string name="pk_use_directory_pick" tools:ignore="ExtraTranslation">prefUseDirectoryPick</string>
+    <string name="qrIntentAction" tools:ignore="ExtraTranslation">net.basov.lws.qr.ENCODE</string>
+    <string name="notif_ch_id" tools:ignore="ExtraTranslation">lWS_notification_channel</string>
+    <string name="notif_ch_hr" tools:ignore="ExtraTranslation">lWS operation status</string>
+    <string name="location_dms_format">%d/1,%d/1,%d/1000</string>
+    <string name="highres">highres</string>
+
+</resources>

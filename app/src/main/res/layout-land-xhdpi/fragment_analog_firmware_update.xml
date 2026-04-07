@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingDefaultResource">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/firmware_update_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/layout_margin_top"
+            android:layout_marginEnd="@dimen/layout_margin_right"
+            android:layout_marginBottom="30dp"
+            android:layout_marginStart="@dimen/land_recycler_view_vertical_start_margin"
+            android:background="@drawable/shape_rectangle_background"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/loading_text"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+
+                android:gravity="start"
+                android:letterSpacing="0.1"
+                android:text="@string/up_loading"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintBottom_toBottomOf="@+id/firmware_loading_text_horizontal_guideline_bottom"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/firmware_loading_text_vertical_guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/firmware_loading_text_horizontal_guideline_top" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/dialog_bg"
+                app:layout_constraintBottom_toTopOf="@+id/firmware_dialog_horizontal_guideline_bottom"
+                app:layout_constraintEnd_toEndOf="@id/firmware_dialog_vertical_guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/firmware_dialog_vertical_guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/firmware_dialog_horizontal_guideline_top">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/firmware_message_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/ic_firmware_dialog_info"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/dialog_message"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+
+                    android:gravity="center_horizontal"
+                    android:lineSpacingExtra="2dp"
+                    android:text="@string/firmware_dialog_message"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/firmware_message_info" />
+
+                <TextView
+                    android:id="@+id/estimation_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/estimated_time"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dialog_message" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_horizontal"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/estimation_time"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/progress_layout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/progress_text"
+                app:layout_constraintEnd_toEndOf="@+id/firmware_progress_vertical_guideline_end"
+                app:layout_constraintStart_toStartOf="@id/firmware_progress_vertical_guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/firmware_progress_horizontal_guideline_top">
+
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/progress_circle_shape"
+                    android:indeterminate="false"
+                    android:progressDrawable="@drawable/custom_circular_progressbar"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/firmware_camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintEnd_toEndOf="@+id/progress_bar"
+                    app:layout_constraintStart_toStartOf="@+id/progress_bar"
+                    app:layout_constraintTop_toTopOf="@id/progress_bar" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/firmware_camera_upload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="16dp"
+                    android:src="@drawable/ic_firmware_upload"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@id/progress_bar"
+                    app:layout_constraintEnd_toEndOf="@id/progress_bar"
+                    app:layout_constraintStart_toStartOf="@id/progress_bar"
+                    app:layout_constraintTop_toBottomOf="@+id/firmware_camera"
+                    app:layout_constraintVertical_bias="0.3" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/firmware_camera_upload_done"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_firmware_done"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/progress_bar"
+                    app:layout_constraintEnd_toEndOf="@id/progress_bar"
+                    app:layout_constraintStart_toStartOf="@id/progress_bar"
+                    app:layout_constraintTop_toTopOf="@id/progress_bar" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/progress_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0%"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/progress_layout"
+                app:layout_constraintStart_toStartOf="@+id/progress_layout"
+                app:layout_constraintTop_toBottomOf="@+id/firmware_progress_horizontal_guideline_bottom" />
+
+            <!-- firmware dialog message view guideline-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/firmware_dialog_vertical_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.0306" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/firmware_dialog_vertical_guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.4728" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/firmware_dialog_horizontal_guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.2975" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/firmware_dialog_horizontal_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.7493" />
+
+            <!--progressbar loading view guide line-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/firmware_progress_vertical_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5039" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/firmware_progress_vertical_guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.9051" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/firmware_progress_horizontal_guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.1542" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/firmware_progress_horizontal_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.8057" />
+
+
+            <!-- loading text view guideline-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/firmware_loading_text_horizontal_guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.0909" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/firmware_loading_text_horizontal_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.1532" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/firmware_loading_text_vertical_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.0850" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottomContainer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_view_guideline_horizontal_bottom"
+            app:layout_constraintEnd_toStartOf="@+id/firmware_update_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="@dimen/sionyximage_width"
+                android:layout_height="@dimen/sionyximage_height"
+                android:src="@drawable/ic_heading"
+                app:layout_constraintBottom_toTopOf="@+id/sionyx_image_view_guideline_horizontal_bottom"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sionyx_image_view_guideline_horizontal_top" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/sionyx_image_view_guideline_horizontal_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="30dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/sionyx_image_view_guideline_horizontal_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="60dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/image_view_guideline_horizontal_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="15dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_view_guideline_horizontal_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="@dimen/land_select_layout_margin_bottom" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

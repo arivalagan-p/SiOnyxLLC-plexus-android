@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="sionyximage_width">63dp</dimen>
+    <dimen name="sionyximage_height">15dp</dimen>
+
+    <dimen name="image_button_width">71dp</dimen>
+    <dimen name="image_button_height">71dp</dimen>
+    <dimen name="image_button_top">28dp</dimen>
+    <dimen name="image_button_bottom">28dp</dimen>
+    <dimen name="land_recycler_view_vertical_start_margin">170dp</dimen>
+
+<!--    Password connection prompt size-->
+    <dimen name="password_dialog_start_margin">210dp</dimen>
+    <dimen name="password_dialog_end_margin">90dp</dimen>
+    <dimen name="password_dialog_top_margin">70dp</dimen>
+    <dimen name="password_dialog_bottom_margin">70dp</dimen>
+    <dimen name="password_dialog_portrait_start_margin">30dp</dimen>
+    <dimen name="password_dialog_portrait_end_margin">30dp</dimen>
+
+    <dimen name="layout_margin_top">30dp</dimen>
+    <dimen name="layout_margin_bottom">30dp</dimen>
+    <dimen name="layout_margin_right">30dp</dimen>
+    <dimen name="layout_margin_start">30dp</dimen>
+<!--    Text size-->
+    <dimen name="small_sp">11sp</dimen>
+    <dimen name="medium_sp">12sp</dimen>
+    <dimen name="large_sp">16sp</dimen>
+    <dimen name="text_size">12sp</dimen>
+</resources>

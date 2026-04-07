@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="MissingDefaultResource">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="33dp"
+            android:layout_marginBottom="26dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/bottom_view_gallery_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.sionyx.plexus.ui.home.RectangleImageView
+                android:id="@+id/bottom_view_gallery_thumbnail"
+                android:layout_width="215dp"
+                android:layout_height="0dp"
+                android:scaleType="fitXY"
+                app:layout_constraintDimensionRatio="H,16:9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/checkbox_layer"
+                android:layout_width="215dp"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.sionyx.plexus.ui.home.RectangleImageView
+                    android:id="@+id/bottom_view_gallery_transparent_thumbnail"
+                    android:layout_width="215dp"
+                    android:layout_height="0dp"
+                    android:scaleType="fitXY"
+                    android:visibility="visible"
+                    app:layout_constraintDimensionRatio="H,16:9"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_gallery_transparency" />
+
+                <CheckBox
+                    android:id="@+id/custom_checkbox"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_margin="7dp"
+                    android:button="@drawable/custom_checkbox"
+                    android:buttonTint="@color/white"
+                    android:clickable="true"
+                    app:layout_constraintStart_toStartOf="@id/bottom_view_gallery_transparent_thumbnail"
+                    app:layout_constraintTop_toTopOf="@id/bottom_view_gallery_transparent_thumbnail"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gallery_play_icon_vertical_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.8306" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gallery_play_icon_vertical_guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.9112" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gallery_play_icon_vertical_guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5822" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gallery_play_icon_vertical_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.7088" />
+
+            <ImageView
+                android:id="@+id/bottom_view_gallery_play_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:verticalScrollbarPosition="right"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/bottom_view_gallery_thumbnail"
+                app:layout_constraintEnd_toEndOf="@+id/bottom_view_gallery_thumbnail"
+                app:layout_constraintStart_toStartOf="@+id/bottom_view_gallery_thumbnail"
+                app:layout_constraintTop_toBottomOf="@+id/bottom_view_gallery_thumbnail"
+                app:layout_constraintTop_toTopOf="@+id/bottom_view_gallery_thumbnail"
+                app:srcCompat="@drawable/ic_play_white" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/bottom_view_gallery_title"
+            android:layout_width="124dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:ellipsize="end"
+            android:gravity="center|left"
+            android:maxLines="1"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/constraintLayout"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

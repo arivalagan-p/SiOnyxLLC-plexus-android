@@ -1,0 +1,442 @@
+<resources>
+
+    <!--Plexus-->
+    <string name="app_name">SIONYX</string>
+
+    <!-- Connection Page -->
+    <string name="nearby_devices">NEARBY DEVICES</string>
+    <string name="camera_name">Camera Name</string>
+    <string name="permission_message_first">SIONYX App requires your permission to locate nearby Wi-Fi and bluetooth devices to establish and maintain a connection with your camera.The SIONYX app does not derive any physical location information.</string>
+    <string name="permission_message_second"> If you choose to not grant permission at this time, you may do so in the future by accessing the mobile device\'s settings menu and enabling the permission in the app permissions setting page for the SIONYX mobile app.</string>
+    <string name="enable_bluetooth_wifi_dialog_message">THE SIONYX MOBILE APP REQUIRES BLUETOOTH AND Wi-Fi FOR PROPER FUNCTION. PLEASE CHANGE IN DEVICE SETTINGS TO CONTINUE.</string>
+    <string name="wifi_disconnected_messgae">The Wi-Fi connection is lost.\nDo you wish to try to reconnect?</string>
+    <string name="socket_disconnected_messgae">Camera connection failed.\nPlease power cycle the camera and reconnect to the mobile app.</string>
+    <string name="wifi_connected_with_other_client">Camera is connected to another client.\nPlease disconnect the other client and try to reconnect.</string>
+    <string name="wifi_connection_lost">The Wi-Fi Connection is Lost.</string>
+    <string name="long_press_camera_manage">Press and hold the camera icon to \nmanage the camera settings.</string>
+
+    <!--Dashboard-->
+    <string name="bluetooth_not_supported">Device does not support Bluetooth.</string>
+
+    <!--    info -->
+    <string name="sionyx_com_patents">sionyx.com/patents</string>
+    <string name="copyright">Copyright</string>
+    <string name="copyright_value">SIONYX LLC 2026</string>
+    <string name="language">Language</string>
+    <string name="english">English</string>
+    <string name="app_version">App Version</string>
+    <string name="app_version_number">1.1.0</string>
+    <string name="contact">CONTACT</string>
+    <string name="support_sionyx_com">support@sionyx.com</string>
+    <string name="contact_no">+1 (866) 827–8237</string>
+    <string name="patent_info">Patent info</string>
+
+    <string name="share">Share</string>
+    <string name="is_golden">golden</string>
+    <string name="is_normal">normal</string>
+    <string name="fw_please_wait">Please wait…</string>
+    <string name="unknown_ssid"><![CDATA[<unknown ssid>]]></string>
+    <string name="download_successful">The download has completed.</string>
+    <string name="download_in_progress">File download in progress…</string>
+
+    <!--camera live view menu settings-->
+    <string name="device_info">DEVICE INFO</string>
+    <string name="ssid">ssid</string>
+    <string name="name">name</string>
+    <string name="mac_address">mac address</string>
+    <string name="fw_update_available">Firmware Update Available</string>
+    <string name="fw_up_to_date">Firmware is Up to date</string>
+    <string name="check_for_update">Check for Updates</string>
+    <string name="change_name_password">Change Name</string>
+    <string name="factory_reset">Factory Reset</string>
+    <string name="back_to_settings">Back to Settings</string>
+    <string name="change_device_name_password">Change Device Name</string>
+    <string name="device_name">Device Name</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="isp">ISP</string>
+    <string name="save">Save</string>
+    <string name="manage">Manage</string>
+    <string name="date">DATE:</string>
+    <string name="duration">DURATION:</string>
+    <string name="location">LOCATION:</string>
+    <string name="time">TIME:</string>
+    <string name="latitude">LATITUDE:</string>
+    <string name="longitude">LONGITUDE:</string>
+    <string name="recording_info">Recording Info</string>
+    <string name="delete_recording">Delete Recording</string>
+    <string name="all">ALL</string>
+    <string name="photos">PHOTOS</string>
+    <string name="videos">VIDEOS</string>
+    <string name="select_all">Select All</string>
+    <string name="download">Download</string>
+    <string name="erase">Erase</string>
+    <string name="model">model:</string>
+    <string name="resolution">resolution:</string>
+    <string name="software">software:</string>
+    <string name="aperture">aperture:</string>
+    <string name="focal_length">focal length:</string>
+    <string name="date_time">data time:</string>
+    <string name="device_name_cannot_blank">Device Name cannot be blank</string>
+    <string name="back_to_device_info">Back to Device Info</string>
+    <string name="reset_my_device">Reset My Device</string>
+    <string name="unselect_all">Deselect All</string>
+    <string name="unknown">UNKNOWN</string>
+    <string name="up_loading">Uploading…</string>
+    <string name="password">Password</string>
+    <string name="back">Back</string>
+    <string name="select_device">SELECT DEVICE</string>
+    <string name="lat_lon">Lat: %1$s\nLon: %2$s</string>
+    <string name="on">ON</string>
+    <string name="off">OFF</string>
+    <string name="recording_info_title">Recording Info</string>
+    <string name="delete_recording_text">Delete Recording</string>
+    <string name="image_info">Image Info</string>
+    <string name="delete_image_text">Delete Image</string>
+    <string name="intial_percentage">0%</string>
+    <string name="fps">\FPS: \</string>
+
+    <string name="factory_reset_message">Are you sure you want to factory reset your SIONYX Camera?</string>
+    <string name="pop_up_delete_message">This action will delete this camera and any associated connection setting.\nLocally stored media will not be deleted.</string>
+    <string name="camera_name_length">Camera Name must be between 8 to 32 characters.</string>
+    <string name="noudp">Please turn off the camera then turn on again to receive Live View.</string>
+    <string name="camera_name_error">This character is not supported.</string>
+    <string name="un_supported_character_message">Camera name contains unsupported special characters.\nUpdate the camera name in order to proceed further.</string>
+    <string name="photo_capture">An image has been captured.</string>
+    <string name="enable_live">Start live stream to enable.</string>
+    <string name="delete_videos">The video has been deleted.</string>
+    <string name="video_saved">The video has been saved.</string>
+    <string name="erased">The media file has been deleted.</string>
+    <string name="multiple_erased">The media files has been deleted.</string>
+    <string name="not_erased">Choose the media file you want to delete.</string>
+    <string name="location_not_found">Location not found</string>
+    <string name="record_not_found">No Records Found</string>
+    <string name="unable_scan">Unable to connect with the camera.\nPlease try again.</string>
+    <string name="wifi_scan_warning">Check camera availability in system settings: Go to your device\'s settings page and look for the camera settings. Make sure the camera is available.</string>
+    <string name="ble_discover_warning">Make sure the camera is Turned ON.</string>
+    <string name="download_unsuccessful">Choose the media file you want to download.</string>
+    <string name="delete_image">The image has been deleted.</string>
+    <string name="confirm_erase">Are you sure want to delete the media file?</string>
+    <string name="multiple_confirm_erase">Are you sure want to delete the media files?</string>
+    <string name="recording_stopped_no_live_data">Camera recording stopped due to no video data.</string>
+    <string name="video_storage">Insufficient storage is available.\nMore space is required to record the video.</string>
+    <string name="image_storage">Insufficient storage is available.\nMore space is required to capture the image.</string>
+    <string name="no_memory_to_download">Insufficient storage is available.More space is required to download the media files.</string>
+    <string name="change_network_state_failed">CHANGE_NETWORK_STATE FAILED</string>
+    <string name="camera_update_failed">Camera name update failed please try again.</string>
+    <string name="corrupted_video">Unable to select a corrupted video.</string>
+    <!--preset view-->
+    <string name="load_settings">Load Settings</string>
+    <string name="delete">Delete</string>
+    <string name="apply">Apply</string>
+    <string name="no_records_found">No Records Found</string>
+    <string name="preset_name">Enter the preset name</string>
+    <string name="save_settings_delete_message">This action will remove the settings and cannot be undone. Are you sure you want to proceed?</string>
+    <string name="already_exists">Preset name already exists.</string>
+    <string name="preset_name_length">Please ensure that the name is between 3 to 32 characters.</string>
+    <string name="give_the_saved_settings_name_msg">Specify a name for saving your settings within the app.</string>
+    <string name="settings_loaded_successfully">Settings loaded successfully</string>
+    <string name="settings_loaded_failed">Failed</string>
+    <string name="settings_saved_successfully">Settings saved successfully</string>
+    <string name="settings_saved_failed">Failed.</string>
+
+    <!--Nightwave-->
+    <string name="usb">USB</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="firmware_type">Firmware</string>
+    <string name="current_version">Current</string>
+    <string name="new_version">New</string>
+    <string name="top_version">Top Version</string>
+    <string name="set_mirror_image">Set Mirror Image</string>
+    <string name="set_flip_image">Set Flip Image</string>
+    <string name="rtp_are_different_than_1044_without_n_being_the_last_segment_of_a_njpeg_0xffd9">RTP Size Err. :</string>
+    <string name="rtp_skipped_packet">Skipped :</string>
+    <string name="receive_udp_packets">Received :</string>
+    <string name="proceed_with_update_nightwave">Proceed with update?</string>
+    <string name="component_type">Component</string>
+    <string name="auto">AUTO</string>
+    <string name="frames">Frames: </string>
+    <string name="size">Size: </string>
+    <string name="received">Received: </string>
+    <string name="skipped">Skipped: </string>
+    <string name="bad_start">Bad Start:</string>
+    <string name="bad_end">Bad End: </string>
+    <string name="bad_offset">Bad Offset: </string>
+    <string name="camera_menu">Camera Menu</string>
+
+    <string name="video_mode_please_wait">Please wait…</string>
+    <string name="enable_live_streaming_message">Change video mode from USB to Wi-Fi to stream live video.</string>
+    <string name="wifi_mode_changes_message">Video mode changed: camera needs to restart.</string>
+    <string name="video_is_playing_over_usb_nchange_video_mode_from_usb_to_wifi_in_settings_to_turn_on_wifi_streaming">Video is playing over USB.\nUse settings menu to change video mode from USB to Wi-Fi streaming.</string>
+    <string name="nightwave_factory_reset_message">Are you sure you want\nto factory reset your SIONYX\nMarine Camera?</string>
+    <string name="display_user_recover_mode">Software Update did not complete properly.\nRecover Nightwave?</string>
+    <string name="display_user_contact_customer_care_service">A problem occurred.\nUnable to update Nightwave’s software.\nPlease contact Customer Care.</string>
+    <string name="please_try_again">Please try again..</string>
+    <string name="latitude_longitude">%1$s\n%2$s</string>
+    <string name="app_update">The camera’s firmware version is newer than this app supports. Some camera features may not function as expected.</string>
+    <string name="delete_camera_popup_message">The selected camera is currently connected. Please disconnect the camera’s Wi-Fi from the Phone Settings screen before proceeding.</string>
+
+    <!--Opsin-->
+    <string name="risc_v_overlay">Overlay</string>
+    <string name="risc_v_recovery">Recovery</string>
+    <string name="completed">Completed</string>
+    <string name="dots">. . .</string>
+    <string name="wi_fi">Wi-Fi</string>
+    <string name="firmware">FIRMWARE</string>
+    <string name="core">CORE</string>
+    <string name="_1_5">1.5</string>
+    <string name="_0_5">-0.5</string>
+    <string name="_2_5">-2.5</string>
+    <string name="_1_x">1X</string>
+    <string name="_2_x">2X</string>
+    <string name="_3_x">3X</string>
+    <string name="fpga">Core</string>
+    <string name="risc_v">Firmware</string>
+    <string name="wi_fi_rtos">Wi-Fi</string>
+    <string name="overlay">Overlay</string>
+    <string name="recovery">Recovery</string>
+    <string name="pending">Pending</string>
+    <string name="complete">Completed</string>
+    <string name="status">Status</string>
+    <string name="wifi_upgrade_suggestion_due_to_wifi_null_title">Wi-Fi Update!</string>
+    <string name="low">LO</string>
+    <string name="high">HI</string>
+    <string name="fps_30">30</string>
+    <string name="fps_60">60</string>
+    <string name="fps_90">90</string>
+    <string name="frame_size">Frame Size: </string>
+    <string name="out_of_order">Out Of Orders: </string>
+    <string name="rtp_received">RTP Received: </string>
+    <string name="_5">5</string>
+    <string name="_25">25</string>
+    <string name="_50">50</string>
+    <string name="_75">75</string>
+    <string name="_100">100</string>
+    <string name="hour_24">24 Hrs</string>
+    <string name="hour_12">12 Hrs</string>
+    <string name="gps">GPS</string>
+    <string name="none">NONE</string>
+    <string name="total_files">Total Files</string>
+    <string name="used_size">Used Size</string>
+    <string name="available_size">Available Size</string>
+    <string name="total_size">Total Size</string>
+    <string name="used_percentage">Used Percentage</string>
+    <string name="camera_info">Camera Info</string>
+    <string name="serial_number">Serial Number</string>
+    <string name="mounted">: Mounted</string>
+    <string name="unmounted">: UnMounted</string>
+
+    <string name="repeat">Repeat</string>
+    <string name="sd_card">SDCard</string>
+    <string name="skip">Skip</string>
+    <string name="siOnyx_app">SiOnyxApp</string>
+
+    <string name="updating">Updating…</string>
+    <string name="up_loading_riscv">Uploading Firmware Component…</string>
+    <string name="up_loading_fpga">Uploading Core Component…</string>
+    <string name="up_loading_riscv_overlay">Uploading Firmware &amp; Overlay Components…</string>
+    <string name="up_loading_wifi">Uploading Wi-Fi Component…</string>
+    <string name="up_loading_ble">Uploading BLE Component…</string>
+    <string name="up_loading_recovery">Uploading Recovery Component…</string>
+    <string name="updating_riscv">Updating Firmware Component…</string>
+    <string name="updating_fpga">Updating Core Component…</string>
+    <string name="updating_riscv_overlay">Updating Firmware &amp; Overlay Components…</string>
+    <string name="updating_wifi">Updating Wi-Fi Component…</string>
+    <string name="updating_ble">Updating BLE Component…</string>
+    <string name="updating_recovery">Updating Recovery Component…</string>
+    <string name="estimated_time">Estimated time %1$s minutes</string>
+    <string name="mic_command_failed_msg">Not allowed while camera is streaming or recording.</string>
+    <string name="time_zone_warning">Set Clock Mode to NONE to activate Time Zone settings.</string>
+    <string name="opsin_start_streaming_msg_while_recording">Streaming video over Wi-Fi will stop SD card recording.\nContinue?</string>
+    <string name="opsin_recording_started_during_streaming">SD card recording started.\nWi-Fi streaming stopped.</string>
+    <string name="failed_to_start_record">Unable to Start Video Record.</string>
+    <string name="decide_sdcard_or_app_to_update_fpga">Update via Wi-Fi may take up to 10 minutes. For faster SD card based update: <a href="www.Sionyx.com/firmware">www.Sionyx.com/firmware</a>. Continue with Wi-Fi update?</string>
+    <string name="contact_customer_to_upgrade_fpga">Go to <a href="www.Sionyx.com/firmware">www.Sionyx.com/firmware</a> to download update and instructions.</string>
+    <string name="after_wifi_upgrade">Disconnect and reconnect battery cable. Allow camera 15 seconds to fully boot before connecting with APP.</string>
+    <string name="factory_reset_completed">Factory reset completed.</string>
+    <string name="battery_charge_message">Please fully charge the battery before attempting to update the software.</string>
+    <string name="wifi_upgrade_suggestion_due_to_wifi_null_message">Wi-Fi update available. Continue with update?</string>
+    <string name="firmware_dialog_message">-While update is in process:\n-Stay within wireless range\n-Do not power down the camera\n-Do not exit the app</string>
+    <string name="frimware_update_available">Firmware update available</string>
+    <string name="frimware_update_status">Firmware Update Status</string>
+    <string name="proceed_with_update">Full system update via Wi-Fi may take up to 30 minutes. For faster SD card based option go to: <a href="www.Sionyx.com/firmware">www.Sionyx.com/firmware</a>. Continue with Wi-Fi update?</string>
+    <string name="please_wait">Please wait…</string>
+    <string name="please_wait_opsin_restart">Camera is Restarting…</string>
+    <string name="please_wait_opsin_reset">Camera is Resetting…</string>
+    <string name="display_power_cycle_camera">A problem occurred.\nSoftware Update Failed.\nPlease turn off the camera then turn on again.</string>
+    <string name="display_user_contact_customer_care_service_opsin">A problem occurred.\nUnable to update Opsin’s software.\nPlease contact Customer Care.</string>
+    <string name="display_user_recover_mode_opsin">Software Update did not complete properly.\nRecover Opsin?</string>
+    <string name="firmware_update_failed_retry">Firmware update failed\n\nRetry?</string>
+    <string name="device_reset_in_progress">Device RESET in progress.</string>
+    <string name="please_re_launch_the_application">Please re-launch the application</string>
+    <string name="firmware_dialog_in_split_screen">Updated firmware available!\n Exit from Split screen to update firmware.</string>
+    <string name="camera_sd_card_full_video_recording_msg">SD card storage is almost full. Please make space available to continue recording.</string>
+    <string name="camera_sd_card_full_image_capture_msg">SD card storage is almost full. Please make space available to continue image capture.</string>
+    <string name="sd_card_storage_full">SD Card Storage Full</string>
+    <string name="time_format">Time Format</string>
+    <string name="dummy_lat_long">12.94773581738194\n80.20909172883489</string>
+    <string name="teamlegth_error">1.Team name must be \"4–12\" characters long. 2.Team name cannot include spaces or special characters except \"-\",\"_\".</string>
+    <string name="enterrequirefields">Kindly enter all the required fields.</string>
+    <string name="user_not_confirmed_message">Confirmation failed. Please re-send confirmation code.</string>
+    <string name="user_not_exist">User does not exist</string>
+    <string name="incorrect_username_password">Invalid credentials</string>
+    <string name="Username_client_error">Username/email combination not found.</string>
+    <string name="limit_exceed_login">Too many attempts, please try again later.</string>
+    <string name="messgae_conformationcodesent">Please enter emailed confirmation code</string>
+    <string name="message_invalid_otp">Invalid code provided, please request a code again.</string>
+    <string name="message_password_same_error">The new password and confirm password do not match.</string>
+    <string name="message_password_character_length">Password must have at least 8 characters</string>
+    <string name="message_password_specialcharacter">Password must include at least one special character</string>
+    <string name="message_password_uppercase">Password must include at least one uppercase letter</string>
+    <string name="message_password_lowercase">Password must include at least one lowercase letter</string>
+    <string name="message_password_number">Password must include at least one number</string>
+    <string name="signoutalert">Logout from your account?</string>
+    <string name="alreadysignin_message">You are already signed into another device.  Would you like to sign out from the other device?</string>
+    <string name="message_signout_another_device">User signed out from another device</string>
+    <string name="success">Password reset successfully</string>
+    <string name="no_internet_connection">No Internet Connection</string>
+    <string name="fetching">Fetching</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="show_password">Show Password</string>
+    <string name="username">Username</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="register">Register Here</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirmation_code">Confirmation Code</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="sent_confirmation_code">Send Confirmation Code</string>
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
+    <string name="invalid_email">Enter valid email address</string>
+    <string name="session_expired_message">Session Expired</string>
+    <string name="password_error_message">\t *Password must have at least 8 characters\n\t
+        *Password must include at least one special character\n\t
+        *Password must include at least one uppercase letter\n\t
+        *Password must include at least one lowercase letter\n\t
+        *Password must include at least one number\n\n</string>
+    <string name="logout">Logout</string>
+    <string name="ok">OK</string>
+    <string name="please_login_to_continue">Please login to continue</string>
+    <string name="already_sign_out_other_device_msg">You have been logged out because your account was accessed from another device. Please log in again to continue.</string>
+    <string name="login_success">You have successfully logged in.</string>
+    <string name="logout_success">You have successfully logged out.</string>
+
+    <!---Change Password regex-->
+    <string name="pwd_error_msg1">Password must be between 8 and 64 characters</string>
+    <string name="pwd_error_msg2">Password must include at least one special character.</string>
+    <string name="pwd_error_msg3">Password must include at least one uppercase letter.</string>
+    <string name="pwd_error_msg4">Password must include at least one lowercase letter.</string>
+    <string name="pwd_error_msg5">Password must include at least one number.</string>
+
+    <!--NWD update FW Dialog-->
+        <string name="software_update_title">Check for Updates</string>
+        <string name="software_update_version">Current Software Version: %s</string>
+        <string name="software_update_message">
+        <![CDATA[
+            Keep Your Nightwave Camera Up to Date.<br><br>
+            For the best performance and features, make sure your device is running the latest firmware.<br><br>
+            Visit www.sionyx.com</a> to check your firmware version and follow the upgrade guide to update if needed.<br><br>
+            Stay current for the best Nightwave experience.<br><br>
+        ]]>
+    </string>
+    <!--Un-used-Nightwave-->
+    <string name="sionyx_camera_splash_message">SIONYX products are viewing aids only,not replacements\nfor natural vision or standard navigational devices.\n<b>Please use SIONYX products safely and responsibly.</b></string>
+
+    <!--Un-used-Opsin-->
+    <string name="start_record">Start Live Streaming</string>
+    <string name="stop_recording">Stop Live Streaming</string>
+    <string name="no_gallery">Opsin doesn\'t support Gallery</string>
+    <string name="resolution_format">%d X %d</string>
+    <string name="percentage">%d%%</string>
+    <string name="timezone_format">%02d:%02d</string>
+    <string name="minutes">%02d</string>
+    <string name="bluetooth">BLE</string>
+    <string name="ble">BLE</string>
+    <string name="set_date_amp_time"><![CDATA[Set Date & Time]]></string>
+    <string name="time_">Time</string>
+    <string name="date_">Date</string>
+    <string name="time_zone">Time Zone</string>
+    <string name="sync_local_date_amp_time"><![CDATA[Sync Local Date & Time]]></string>
+    <string name="manual">Manual</string>
+    <string name="automatic">Automatic</string>
+    <string name="select_time">Select Time</string>
+    <string name="select_date">Select date</string>
+    <string name="select_time_zone">Select Time Zone</string>
+    <string name="colon_split">: %1$s</string>
+    <string name="content_description_text">content_description</string>
+    <string name="enable_precise_location_from_location_permission">Enable \'Precise location\' from Location Permission</string>
+    <string name="sign_out">SignOut</string>
+    <string name="signout_successfully">Successfully signed out from another device.</string>
+    <string name="email">Email</string>
+    <string name="user_not_found">User not found</string>
+    <string name="please_enter_your_username_to_receive_the_confirmation_code">Please enter your username to receive the confirmation code</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_devices">Add Devices</string>
+    <string name="product_name">Product Name</string>
+    <string name="sku">SKU</string>
+    <string name="classification">Classification</string>
+    <string name="scan_qr_code">Scan QR Code</string>
+    <string name="scan_qr_code_to_add_device">Scan QR Code to Add Device</string>
+    <string name="profile">Profile</string>
+    <string name="invalid_product">The QR code scanned is invalid. Scan a valid QR code to save the product.</string>
+    <string name="are_you_sure_you_want_to_delete_this_product">Are you sure you want to delete this camera?</string>
+    <string name="the_product_details_have_been_successfully_deleted">The product details have been successfully deleted.</string>
+    <string name="the_product_details_have_been_added_successfully">The product details have been added successfully.</string>
+    <string name="please_enter_your_username_to_receive_the_otp">Please enter your username to receive the OTP.</string>
+    <string name="sent_otp">Send OTP</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="resend_otp_in">Resend OTP in: </string>
+    <string name="forgot_password_empty_content_msg">"Forgot your password?\n\nNo problem, let's get you set up with a new password. Please follow these steps:\n\n1. Enter your registered username in the username textfield and click Send OTP.\n\n2. You will receive a One-Time Password (OTP) to your email. Check your inbox (and spam folder, just in case) for the OTP.\n\n3. Enter the OTP in the field provided on this page and submit it to verify your identity and proceed to set a new password.\n\nRemember: The OTP will expire in 1 minute. If you do not use the OTP within this time, you will need to request a new one."</string>
+    <string name="password_must_have_at_least_8_characters">Password must have at least 8 characters</string>
+    <string name="password_must_include_at_least_one_special_character">Password must include at least one special character</string>
+    <string name="password_must_include_at_least_one_uppercase_letter">Password must include at least one uppercase letter</string>
+    <string name="password_must_include_at_least_one_lowercase_letter">Password must include at least one lowercase letter</string>
+    <string name="password_must_include_at_least_one_number">Password must include at least one number</string>
+    <string name="tap_here_to_resend_otp">Tap here to resend OTP</string>
+    <string name="password_reset_required_for_the_user">Password reset required for the user</string>
+    <string name="your_password_reset_has_already_been_initiated_please_set_a_new_password_to_log_in_again">Your password reset has already been initiated. Please set a new password to log in again.</string>
+    <string name="attempt_limit_exceeded_please_try_after_some_time">Attempt limit exceeded, please try after some time</string>
+    <string name="sd_card_recording_in_progress">The SD card recording is currently in progress in the camera. Please stop the recording to proceed with the firmware update.</string>
+    <string name="streaming_in_progress_to_power_cycle">Streaming is currently in progress on the camera. Please power cycle the camera and reconnect to begin the firmware update.</string>
+    <string name="webview_not_reachable">Unable to load the webview content. Please restart the camera, close settings, and reconnect it to continue.</string>
+    <string name="not_valid_camera">The requested camera is invalid</string>
+    <string name="nwd_camera_closure_dialog">Unable to load the live screen. Please move closer to the camera to continue streaming.</string>
+    <string name="nwd_network_while_streaming">Streaming failed due to a network connectivity problem. Please restart the camera.</string>
+    <string name="digital_wifi_settings">Wifi Settings</string>
+    <string name="activate_connection">Auto connection</string>
+    <string name="change_password">Change Password</string>
+    <string name="only_info">Info</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="auto_connect">Auto Connect</string>
+    <string name="only_connect">Connect</string>
+    <string name="password_mismatch">“New password and confirm password doesn\'t match.Please try again.</string>
+    <string name="api_on_success_msg">Camera validated successfully.</string>
+    <string name="api_unauthorized_msg">Session expired. Reconnect the camera again.</string>
+    <string name="api_file_not_found_msg">Camera information not found. Please verify the camera connection.</string>
+    <string name="api_server_error_msg">Server error. Please try again later.</string>
+    <string name="api_error_msg">Service is currently unavailable. Please try again in a while.</string>
+    <string name="streaming_not_available_messgae">Video not available.\nPlease power cycle the camera and try again.</string>
+    <string name="old_new_pwd_same_error">Old password and new password must not be same.</string>
+    <string name="password_invalid_msg">Password doesn\'t meet required criteria.</string>
+    <string name="camera_reboot_msg">Password updated successfully.\nThe camera will now reboot. This may take up to a minute.</string>
+    <string name="firmware_update_msg">Update to the latest firmware to access Wi-Fi settings.</string>
+    <string name="password_empty_msg">Password fields cannot be empty.</string>
+    <string name="reset_pwd">Resetting Password…</string>
+
+<!--    NWD Streaming Grouped ERROR CASES -->
+    <string name="retrying_stream_d_d">Retrying connection (%d of %d)…</string>
+    <string name="invalid_rtsp_uri">Stream not found or the address is invalid.</string>
+    <string name="authentication_error">Authentication failed. Check username or password.</string>
+    <string name="network_issues">Network issue occurred.\nAttempting to reconnect…</string>
+    <string name="server_errors">Streaming server encountered an internal error.</string>
+    <string name="stream_terminated">The video stream has ended.</string>
+    <string name="decoder_stream_error">Streaming error occurred.\nTrying to recover…</string>
+    <string name="playback_stalled">Streaming is taking too long to buffer.</string>
+    <string name="no_video_data">No video data received from the stream.</string>
+    <string name="pipeline_setup_fail">Failed to initialize or configure video stream.</string>
+    <string name="internal_state_corruption">Internal error: Stream became unstable.</string>
+    <string name="unknown_error">An unexpected error occurred during streaming.</string>
+</resources>

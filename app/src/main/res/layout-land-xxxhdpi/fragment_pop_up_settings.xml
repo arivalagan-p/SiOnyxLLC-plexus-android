@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="isLoading"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            style="@style/scrollbar_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/viewpager_vertical_guideline_end"
+            app:layout_constraintStart_toStartOf="@+id/viewpager_vertical_guideline_start"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <!--nightwave ui layout-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/night_wave_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/view_flip_top_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/ic_camera_flip_top"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view_led_icon" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/view_flip_left_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/ic_camera_flip_left"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view_flip_top_icon" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ir_cut_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/ic_ir_cut"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view_flip_left_icon" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/video_mode_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/ic_video_cam"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ir_cut_icon" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/battery_mode_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/ic_video_cam"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/video_mode_icon" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/view_led_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_ic_led"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tab_led"
+                        android:layout_width="160dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/track_selector"
+                        app:layout_constraintEnd_toEndOf="@+id/tab_invert_video"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tabIndicatorColor="@color/white"
+                        app:tabSelectedTextColor="@color/black"
+                        app:tabTextColor="@color/white"
+                        android:contentDescription="@string/content_description_text"/>
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tab_invert_video"
+                        android:layout_width="160dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/track_selector"
+                        app:layout_constraintBottom_toBottomOf="@+id/view_flip_top_icon"
+                        app:layout_constraintEnd_toEndOf="@+id/ir_cut_switch_vertical_guideline_end"
+                        app:layout_constraintStart_toStartOf="@+id/flip_image_switch_vertical_guideline_start"
+                        app:layout_constraintTop_toBottomOf="@+id/view_led_icon"
+                        app:tabIndicatorColor="@color/white"
+                        app:tabSelectedTextColor="@color/black"
+                        app:tabTextColor="@color/white"
+                        android:contentDescription="@string/content_description_text"/>
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tab_flip_video"
+                        android:layout_width="160dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/track_selector"
+                        app:layout_constraintBottom_toBottomOf="@+id/view_flip_left_icon"
+                        app:layout_constraintEnd_toEndOf="@+id/tab_invert_video"
+                        app:layout_constraintTop_toBottomOf="@+id/view_flip_top_icon"
+                        app:tabIndicatorColor="@color/white"
+                        app:tabSelectedTextColor="@color/black"
+                        app:tabTextColor="@color/white"
+                        android:contentDescription="@string/content_description_text"/>
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tab_ircut"
+                        android:layout_width="200dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/track_selector"
+                        app:layout_constraintEnd_toEndOf="@+id/tab_flip_video"
+                        app:layout_constraintTop_toBottomOf="@+id/view_flip_left_icon"
+                        app:tabIndicatorColor="@color/white"
+                        app:tabSelectedTextColor="@color/black"
+                        app:tabTextColor="@color/white"
+                        android:contentDescription="@string/content_description_text">
+
+                    </com.google.android.material.tabs.TabLayout>
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tab_video_mode"
+                        android:layout_width="160dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/track_selector"
+                        app:layout_constraintEnd_toEndOf="@+id/tab_ircut"
+                        app:layout_constraintTop_toBottomOf="@+id/ir_cut_icon"
+                        app:tabIndicatorColor="@color/white"
+                        app:tabSelectedTextColor="@color/black"
+                        app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+                        app:tabTextColor="@color/white"
+                        android:contentDescription="@string/content_description_text"/>
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tab_battery_mode"
+                        android:layout_width="160dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/track_selector"
+                        app:layout_constraintEnd_toEndOf="@+id/tab_video_mode"
+                        app:layout_constraintTop_toBottomOf="@+id/video_mode_icon"
+                        app:tabIndicatorColor="@color/white"
+                        app:tabSelectedTextColor="@color/black"
+                        app:tabTextColor="@color/white"
+                        android:contentDescription="@string/content_description_text"/>
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/ir_cut_switch_vertical_guideline_start"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.2986" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/ir_cut_switch_vertical_guideline_end"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.6959" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/flip_image_switch_vertical_guideline_start"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.3905" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Opsin Ui layout-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/opsin_ui_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/opsin_nuc_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_nuc_white_new"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/mic_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/ic_mic_on"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/opsin_nuc_icon" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/opsin_jepg_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/ic_jpeg_hi"
+                        android:visibility="gone"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mic_icon" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/opsin_fps_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/ic_fps"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/opsin_jepg_icon" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/opsin_clock_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/ic_hour_clock_12"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/opsin_fps_icon" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/opsin_utc_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/ic_utc"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/opsin_clock_icon" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/opsin_gps_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/ic_gps"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/opsin_utc_icon" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/opsin_monochrome_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/ic_monochrome_white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/opsin_gps_icon" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/opsin_noise_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/ic_noise_white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/opsin_monochrome_icon" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/opsin_roi_mode_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/ic_roi_white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/opsin_noise_icon" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/opsin_source_mode_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/ic_clock_white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/opsin_roi_mode_icon" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/opsin_meta_data_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/ic_metadata_white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/opsin_source_mode_icon" />
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/opsin_tab_nuc"
+                        android:layout_width="160dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/track_selector"
+                        app:layout_constraintEnd_toEndOf="@+id/opsin_tab_mic"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tabIndicatorColor="@color/white"
+                        app:tabSelectedTextColor="@color/black"
+                        app:tabTextColor="@color/white"
+                        android:contentDescription="@string/content_description_text"/>
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/opsin_tab_mic"
+                        android:layout_width="160dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/track_selector"
+                        app:layout_constraintBottom_toBottomOf="@+id/mic_icon"
+                        app:layout_constraintEnd_toEndOf="@+id/opsin_ir_cut_switch_vertical_guideline_end"
+                        app:layout_constraintStart_toStartOf="@+id/opsin_flip_image_switch_vertical_guideline_start"
+                        app:layout_constraintTop_toBottomOf="@+id/opsin_nuc_icon"
+                        app:tabIndicatorColor="@color/white"
+                        app:tabSelectedTextColor="@color/black"
+                        app:tabTextColor="@color/white"
+                        android:contentDescription="@string/content_description_text"/>
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/opsin_tab_jpeg"
+                        android:layout_width="160dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/track_selector"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="@+id/opsin_jepg_icon"
+                        app:layout_constraintEnd_toEndOf="@+id/opsin_tab_mic"
+                        app:layout_constraintTop_toBottomOf="@+id/mic_icon"
+                        app:tabIndicatorColor="@color/white"
+                        app:tabSelectedTextColor="@color/black"
+                        app:tabTextColor="@color/white"
+                        android:contentDescription="@string/content_description_text"/>
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/opsin_tab_fps"
+                        android:layout_width="200dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/track_selector"
+                        app:layout_constraintBottom_toBottomOf="@+id/opsin_fps_icon"
+                        app:layout_constraintEnd_toEndOf="@+id/opsin_tab_jpeg"
+                        app:layout_constraintTop_toBottomOf="@+id/opsin_jepg_icon"
+                        app:tabIndicatorColor="@color/white"
+                        app:tabSelectedTextColor="@color/black"
+                        app:tabTextColor="@color/white"
+                        android:contentDescription="@string/content_description_text"/>
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/opsin_tab_clock"
+                        android:layout_width="160dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/track_selector"
+                        app:layout_constraintBottom_toBottomOf="@+id/opsin_clock_icon"
+                        app:layout_constraintEnd_toEndOf="@+id/opsin_tab_fps"
+                        app:layout_constraintTop_toBottomOf="@+id/opsin_fps_icon"
+                        app:tabIndicatorColor="@color/white"
+                        app:tabSelectedTextColor="@color/black"
+                        app:tabTextColor="@color/white"
+                        android:contentDescription="@string/content_description_text"/>
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/opsin_tab_utc"
+                        android:layout_width="160dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/track_selector"
+                        app:layout_constraintBottom_toBottomOf="@+id/opsin_utc_icon"
+                        app:layout_constraintEnd_toEndOf="@+id/opsin_tab_clock"
+                        app:layout_constraintTop_toBottomOf="@+id/opsin_clock_icon"
+                        app:tabIndicatorColor="@color/white"
+                        app:tabSelectedTextColor="@color/black"
+                        app:tabTextColor="@color/white"
+                        android:contentDescription="@string/content_description_text"/>
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/opsin_tab_gps"
+                        android:layout_width="160dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/track_selector"
+                        app:layout_constraintBottom_toBottomOf="@+id/opsin_gps_icon"
+                        app:layout_constraintEnd_toEndOf="@+id/opsin_tab_utc"
+                        app:layout_constraintTop_toBottomOf="@+id/opsin_utc_icon"
+                        app:tabIndicatorColor="@color/white"
+                        app:tabSelectedTextColor="@color/black"
+                        app:tabTextColor="@color/white"
+                        android:contentDescription="@string/content_description_text"/>
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/opsin_tab_monochrome"
+                        android:layout_width="160dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/track_selector"
+                        app:layout_constraintBottom_toBottomOf="@+id/opsin_monochrome_icon"
+                        app:layout_constraintEnd_toEndOf="@+id/opsin_tab_gps"
+                        app:layout_constraintTop_toBottomOf="@+id/opsin_gps_icon"
+                        app:tabIndicatorColor="@color/white"
+                        app:tabSelectedTextColor="@color/black"
+                        app:tabTextColor="@color/white"
+                        android:contentDescription="@string/content_description_text"/>
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/opsin_tab_noise"
+                        android:layout_width="160dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/track_selector"
+                        app:layout_constraintBottom_toBottomOf="@+id/opsin_noise_icon"
+                        app:layout_constraintEnd_toEndOf="@+id/opsin_tab_monochrome"
+                        app:layout_constraintTop_toBottomOf="@+id/opsin_monochrome_icon"
+                        app:tabIndicatorColor="@color/white"
+                        app:tabSelectedTextColor="@color/black"
+                        app:tabTextColor="@color/white"
+                        android:contentDescription="@string/content_description_text"/>
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/opsin_tab_roi"
+                        android:layout_width="200dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/track_selector"
+                        app:layout_constraintBottom_toBottomOf="@+id/opsin_roi_mode_icon"
+                        app:layout_constraintEnd_toEndOf="@+id/opsin_tab_noise"
+                        app:layout_constraintTop_toBottomOf="@+id/opsin_noise_icon"
+                        app:tabIndicatorColor="@color/white"
+                        app:tabSelectedTextColor="@color/black"
+                        app:tabTextColor="@color/white"
+                        android:contentDescription="@string/content_description_text"/>
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/opsin_tab_source"
+                        android:layout_width="160dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/track_selector"
+                        app:layout_constraintBottom_toBottomOf="@+id/opsin_source_mode_icon"
+                        app:layout_constraintEnd_toEndOf="@+id/opsin_tab_roi"
+                        app:layout_constraintTop_toBottomOf="@+id/opsin_roi_mode_icon"
+                        app:tabIndicatorColor="@color/white"
+                        app:tabSelectedTextColor="@color/black"
+                        app:tabTextColor="@color/white"
+                        android:contentDescription="@string/content_description_text"/>
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/opsin_tab_metadata"
+                        android:layout_width="160dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="25dp"
+                        android:background="@drawable/track_selector"
+                        app:layout_constraintBottom_toBottomOf="@+id/opsin_meta_data_icon"
+                        app:layout_constraintEnd_toEndOf="@+id/opsin_tab_source"
+                        app:layout_constraintTop_toBottomOf="@+id/opsin_source_mode_icon"
+                        app:tabIndicatorColor="@color/white"
+                        app:tabSelectedTextColor="@color/black"
+                        app:tabTextColor="@color/white"
+                        android:contentDescription="@string/content_description_text"/>
+
+                    <include
+                        android:id="@+id/pop_time_zone_layout"
+                        layout="@layout/pop_up_time_zone_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="@+id/opsin_tab_metadata"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/opsin_meta_data_icon" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/opsin_ir_cut_switch_vertical_guideline_start"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.2986" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/opsin_ir_cut_switch_vertical_guideline_end"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.6959" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/opsin_flip_image_switch_vertical_guideline_start"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.3905" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/opsin_tab_view_horizontal_guideline_top"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent="0.1041" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+        <com.sionyx.plexus.utils.circulardotprogressbar.CircleLoadingIndicatorView
+            android:id="@+id/set_date_time_mode_response_progress_bar"
+            style="@style/CircleLoadingIndicatorView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:indicatorColor="@color/light_white"
+            app:indicatorName="DotCircleProgressIndicator"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.499"
+            android:visibility="gone"/>
+
+        <com.sionyx.plexus.utils.circulardotprogressbar.CircleLoadingIndicatorView
+            android:id="@+id/custom_progress_bar"
+            style="@style/CircleLoadingIndicatorView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:indicatorColor="@color/light_white"
+            app:indicatorName="DotCircleProgressIndicator"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/viewpager_vertical_guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.2064" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/viewpager_vertical_guideline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9386" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

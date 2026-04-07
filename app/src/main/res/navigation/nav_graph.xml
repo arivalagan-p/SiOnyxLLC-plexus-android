@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreenFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.sionyx.plexus.ui.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/homeToCameraSplashFragment"
+            app:destination="@id/cameraSplashFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cameraSplashFragment"
+        android:name="com.sionyx.plexus.ui.camera.splash.CameraSplashFragment"
+        android:label="fragment_camera_splash"
+        tools:layout="@layout/fragment_camera_splash" >
+        <action
+            android:id="@+id/cameraSplashToCameraFragment"
+            app:destination="@id/cameraFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="com.sionyx.plexus.ui.camera.CameraFragment"
+        android:label="fragment_camera"
+        tools:layout="@layout/fragment_camera">
+        <action
+            android:id="@+id/cameraFragmentToCameraSettingFragment"
+            app:destination="@id/cameraSettingsDialogFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.sionyx.plexus.ui.splashscreen.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/cameraSettingsFragment"
+        android:name="com.sionyx.plexus.ui.camera.menus.CameraSettingsFragment"
+        android:label="fragment_camera_settings"
+        tools:layout="@layout/fragment_camera_settings" />
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.sionyx.plexus.InfoFragment"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info" />
+    <fragment
+        android:id="@+id/contactFragment"
+        android:name="com.sionyx.plexus.ContactFragment"
+        android:label="fragment_contact"
+        tools:layout="@layout/fragment_contact" />
+<!--    <fragment-->
+<!--        android:id="@+id/popUpCameraInfoFragment"-->
+<!--        android:name="com.sionyx.plexus.popup.PopUpCameraInfoFragment"-->
+<!--        android:label="fragment_pop_up_camera_info"-->
+<!--        tools:layout="@layout/fragment_pop_up_camera_info" />-->
+<!--    <fragment-->
+<!--        android:id="@+id/popUpSettingsFragment"-->
+<!--        android:name="com.sionyx.plexus.popup.PopUpSettingsFragment"-->
+<!--        android:label="fragment_pop_up_settings"-->
+<!--        tools:layout="@layout/fragment_pop_up_settings" />-->
+<!--    <fragment-->
+<!--        android:id="@+id/popUpCameraAdjustmentFragment"-->
+<!--        android:name="com.sionyx.plexus.popup.PopUpCameraAdjustmentFragment"-->
+<!--        android:label="fragment_pop_up_camera_adjustment"-->
+<!--        tools:layout="@layout/fragment_pop_up_camera_adjustment" />-->
+
+    <dialog
+        android:id="@+id/cameraInfoTabDialogFragment"
+        android:name="com.sionyx.plexus.ui.dialog.CameraInfoTabLayoutDialog"
+        tools:layout="@layout/fragment_camera_info" />
+
+    <dialog
+        android:id="@+id/cameraSettingsDialogFragment"
+        android:name="com.sionyx.plexus.ui.dialog.CameraSettingsTabLayoutDialog"
+        tools:layout="@layout/fragment_camera_tab_layout" />
+    <fragment
+        android:id="@+id/cameraSettingsInfoFragment"
+        android:name="com.sionyx.plexus.ui.camera.menus.CameraSettingsInfoFragment"
+        android:label="fragment_camera_settings_info"
+        tools:layout="@layout/fragment_camera_settings_info" />
+    <dialog
+        android:id="@+id/customProgressDialogFragment"
+        android:name="com.sionyx.plexus.ui.dialog.CustomProgressDialogFragment"
+        android:label="fragment_custom_progress_dialog"
+        tools:layout="@layout/fragment_custom_progress_dialog" />
+
+    <dialog
+        android:id="@+id/noticeDialogFragment"
+        android:name="com.sionyx.plexus.ui.dialog.NoticeDialogFragment"
+        tools:layout="@layout/dialog_info" />
+
+    <dialog
+        android:id="@+id/galleryTabLayoutDialog"
+        android:name="com.sionyx.plexus.ui.dialog.GalleryTabLayoutDialog"
+        android:label="fragment_gallery_tab_layout_dialog"
+        tools:layout="@layout/fragment_gallery_tab_layout_dialog"/>
+
+    <fragment
+        android:id="@+id/galleyAllViewsFragment"
+        android:name="com.sionyx.plexus.ui.galleryliveview.GalleyAllViewsFragment"
+        android:label="fragment_galley_all_views"
+        tools:layout="@layout/fragment_galley_all_views" />
+    <fragment
+        android:id="@+id/galleryVideoFragment"
+        android:name="com.sionyx.plexus.ui.galleryliveview.GalleryVideoFragment"
+        android:label="fragment_gallery_video"
+        tools:layout="@layout/fragment_gallery_video" />
+    <fragment
+        android:id="@+id/galleryImageFragment"
+        android:name="com.sionyx.plexus.ui.galleryliveview.GalleryImageFragment"
+        android:label="fragment_gallery_image"
+        tools:layout="@layout/fragment_gallery_image" />
+    <fragment
+        android:id="@+id/popUpCameraAdjustmentFragment"
+        android:name="com.sionyx.plexus.ui.popup.PopUpCameraAdjustmentFragment"
+        android:label="fragment_pop_up_camera_adjustment"
+        tools:layout="@layout/fragment_pop_up_camera_adjustment" />
+    <fragment
+        android:id="@+id/popUpCameraInfoFragment"
+        android:name="com.sionyx.plexus.ui.popup.PopUpCameraInfoFragment"
+        android:label="fragment_pop_up_camera_info"
+        tools:layout="@layout/fragment_pop_up_camera_info" />
+    <fragment
+        android:id="@+id/popUpSettingsFragment"
+        android:name="com.sionyx.plexus.ui.popup.PopUpSettingsFragment"
+        android:label="fragment_pop_up_settings"
+        tools:layout="@layout/fragment_pop_up_settings" />
+
+    <fragment
+        android:id="@+id/galleryBottomAllViewFragment"
+        android:name="com.sionyx.plexus.ui.home.gallerybottomview.GalleryBottomAllFragment"
+        android:label="fragment_gallery_bottom_all_view"
+        tools:layout="@layout/fragment_gallery_bottom_all_view" />
+<!--    <fragment-->
+<!--        android:id="@+id/galleryBottomTabLayoutFragment"-->
+<!--        android:name="com.sionyx.plexus.ui.home.gallerybottomview.GalleryBottomTabLayoutFragment"-->
+<!--        android:label="fragment_gallery_bottom_tab_layout"-->
+<!--        tools:layout="@layout/fragment_gallery_bottom_tab_layout" />-->
+    <fragment
+        android:id="@+id/galleryBottomImageFragment"
+        android:name="com.sionyx.plexus.ui.home.gallerybottomview.GalleryBottomImageFragment"
+        android:label="fragment_gallery_bottom_image"
+        tools:layout="@layout/fragment_gallery_bottom_photo_view" />
+    <fragment
+        android:id="@+id/galleryBottomVideoFragment"
+        android:name="com.sionyx.plexus.ui.home.gallerybottomview.GalleryBottomVideoFragment"
+        android:label="fragment_gallery_bottom_video"
+        tools:layout="@layout/fragment_gallery_bottom_video_view" />
+    <dialog
+        android:id="@+id/cameraPresetDialogFragment"
+        android:name="com.sionyx.plexus.ui.dialog.CameraPresetDialogFragment"
+        android:label="fragment_camera_preset_dialog"
+        tools:layout="@layout/fragment_camera_preset_dialog" />
+    <dialog
+        android:id="@+id/timeZoneDialogFragment"
+        android:name="com.sionyx.plexus.ui.dialog.TimeZoneDialogFragment"
+        android:label="fragment_time_zone_dialog"
+        tools:layout="@layout/fragment_time_zone_dialog" />
+    <dialog
+        android:id="@+id/connectPasswordDialogFragment"
+        android:name="com.sionyx.plexus.ui.cameramenu.fragment.ConnectPasswordDialogFragment"
+        android:label="dialog_enter_password_connect"
+        tools:layout="@layout/dialog_enter_password_connect"/>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.sionyx.plexus.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/productScanFragment"
+        android:name="com.sionyx.plexus.ui.profile.ProductScanFragment"
+        android:label="fragment_product_scan"
+        tools:layout="@layout/fragment_product_scan" />
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="com.sionyx.plexus.ui.profile.ProductListFragment"
+        android:label="fragment_product_list"
+        tools:layout="@layout/fragment_product_list" />
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.sionyx.plexus.ui.login.ForgotPasswordFragment"
+        android:label="fragment_forgot_password"
+        tools:layout="@layout/fragment_forgot_password" />
+    <fragment
+        android:id="@+id/cameraWifiSettingsFragment"
+        android:name="com.sionyx.plexus.ui.cameramenu.fragment.CameraPasswordSettingsFragment"
+        android:label="fragment_digital_wifi_settings"
+        tools:layout="@layout/fragment_digital_wifi_settings"/>
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.sionyx.plexus.ui.cameramenu.fragment.ChangePasswordFragment"
+        android:label="ChangePasswordFragment"
+        tools:layout="@layout/fragment_change_password">
+        <action
+            android:id="@+id/action_changePasswordFragment_to_cameraWifiSettingsFragment"
+            app:destination="@id/cameraWifiSettingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/analogFirmwareUpdateFragment"
+        android:name="com.sionyx.plexus.ui.fwupdateview.AnalogFirmwareUpdateFragment"
+        android:label="AnalogFirmwareUpdateFragment" />
+
+</navigation>

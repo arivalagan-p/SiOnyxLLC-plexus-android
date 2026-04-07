@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    sionyx image logo attribute-->
+    <dimen name="sionyximage_width">63dp</dimen>
+    <dimen name="sionyximage_height">15dp</dimen>
+
+    <!-- bottom image buttons attributes-->
+    <dimen name="image_button_width">71dp</dimen>
+    <dimen name="image_button_height">71dp</dimen>
+    <dimen name="image_button_top">28dp</dimen>
+    <dimen name="image_button_bottom">28dp</dimen>
+
+    <!--  recycler view container view attributes-->
+    <dimen name="land_recycler_view_vertical_start_margin">170dp</dimen>
+    <dimen name="recycler_view_container_view_layout_margin_top">30dp</dimen>
+    <dimen name="recycler_view_container_view_layout_margin_bottom">30dp</dimen>
+    <dimen name="recycler_view_container_view_layout_margin_start">30dp</dimen>
+    <dimen name="recycler_view_container_view_layout_margin_end">30dp</dimen>
+    <dimen name="port_select_layout_margin_bottom">30dp</dimen>
+    <dimen name="land_select_layout_margin_bottom">30dp</dimen>
+
+    <!--    select device recycler view items attributes-->
+    <!-- Portrait-->
+    <dimen name="select_port_recycler_item_view_layout_margin_start">21dp</dimen>
+    <dimen name="select_port_recycler_item_view_layout_margin_end">35dp</dimen>
+    <item name="port_recycler_view_container_items_vertical_space" format="integer" type="integer">30</item>
+    <item name="port_recycler_view_container_items_horizontal_space" format="integer" type="integer">4</item>
+
+    <!-- Landscape-->
+    <dimen name="select_land_recycler_item_view_layout_margin_start">32dp</dimen>
+    <dimen name="select_land_recycler_item_view_layout_margin_end">32dp</dimen>
+    <item name="land_recycler_view_container_items_vertical_space" format="integer" type="integer">30</item>
+    <item name="land_recycler_view_container_items_horizontal_space" format="integer" type="integer">14</item>
+
+    <!-- title and sub title text view attribute-->
+    <dimen name="small_sp">11sp</dimen>
+    <dimen name="medium_sp">12sp</dimen>
+    <dimen name="large_sp">16sp</dimen>
+    <dimen name="text_size">12sp</dimen>
+
+    <!--    Password connection prompt size-->
+    <dimen name="password_edittext_height">45dp</dimen>
+    <dimen name="password_dialog_text_size">14sp</dimen>
+</resources>

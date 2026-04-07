@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.sionyx.plexus.ui.popup.PopUpCameraSettingsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/date_time_mode_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/opsin_date_time_mode_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/ic_date_time_mode"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/opsin_tab_date_time_mode"
+            android:layout_width="205dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/track_selector"
+            app:layout_constraintBottom_toBottomOf="@+id/opsin_date_time_mode_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tabIndicatorColor="@color/white"
+            app:tabSelectedTextColor="@color/black"
+            app:tabTextColor="@color/white"
+            android:contentDescription="@string/select_time_zone"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/opsin_date_time_manual_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/opsin_date_time_mode_icon">
+
+            <TextView
+                android:id="@+id/opsin_select_time_zone"
+                android:layout_width="200dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="25dp"
+                android:text="@string/select_time_zone"
+                app:drawableStartCompat="@drawable/time_zone_left_icon"
+                android:gravity="center"
+                android:textAlignment="viewStart"
+                android:onClick="@{()-> viewModel.hasSelectTimeZone()}"
+                android:background="@drawable/button_strock_bg"
+                android:textColor="@color/white"
+                app:drawableEndCompat="@drawable/ic_arrow_right"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="RtlCompat" />
+
+            <TextView
+                android:id="@+id/opsin_select_date"
+                android:layout_width="200dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="25dp"
+                android:text="@string/select_date"
+                app:drawableStartCompat="@drawable/date_picker_left_icon"
+                android:onClick="@{()-> viewModel.hasSelectDate()}"
+                android:gravity="center"
+                android:textAlignment="viewStart"
+                android:background="@drawable/button_strock_bg"
+                android:textColor="@color/white"
+                app:drawableEndCompat="@drawable/ic_arrow_right"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/opsin_select_time_zone"
+                tools:ignore="RtlCompat" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/opsin_tab_clock_format"
+                android:layout_width="200dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/track_selector"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/opsin_select_date"
+                app:tabIndicatorColor="@color/white"
+                app:tabSelectedTextColor="@color/black"
+                app:tabTextColor="@color/white"
+                android:contentDescription="@string/content_description_text"/>
+
+            <TextView
+                android:id="@+id/opsin_select_time"
+                android:layout_width="200dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="25dp"
+                android:text="@string/select_time"
+                app:drawableStartCompat="@drawable/time_picker_left_icon"
+                android:onClick="@{()-> viewModel.hasSelectTime()}"
+                android:gravity="center"
+                android:textAlignment="viewStart"
+                android:background="@drawable/button_strock_bg"
+                android:textColor="@color/white"
+                app:drawableEndCompat="@drawable/ic_arrow_right"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/opsin_tab_clock_format"
+                tools:ignore="RtlCompat" />
+
+            <TextView
+                android:id="@+id/opsin_set_date_time"
+                android:layout_width="200dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/button_solid_white"
+                android:gravity="center"
+                android:text="@string/set_date_amp_time"
+                android:onClick="@{()-> viewModel.hasSelectOpsinSetDateAndTime()}"
+                android:textAlignment="center"
+                android:textColor="@color/color_grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/opsin_select_time" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--  Automatic-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/opsin_date_time_Automatic_mode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/opsin_tab_date_time_mode"
+            app:layout_constraintTop_toBottomOf="@id/opsin_date_time_mode_icon">
+
+            <TextView
+                android:id="@+id/opsin_time_zone_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:singleLine="true"
+                android:text="@string/time_zone"
+                android:textAlignment="viewStart"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/date_time_guideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/opsin_local_time_zone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/date_time_guideline"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/opsin_date_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:singleLine="true"
+                android:text="@string/date_"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/date_time_guideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/opsin_time_zone_label" />
+
+            <TextView
+                android:id="@+id/opsin_local_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/date_time_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/opsin_local_time_zone" />
+
+            <TextView
+                android:id="@+id/opsin_time_format_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:singleLine="true"
+                android:text="@string/time_format"
+                android:textAlignment="viewStart"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/date_time_guideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/opsin_date_label" />
+
+            <TextView
+                android:id="@+id/opsin_local_time_format"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:singleLine="true"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/date_time_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/opsin_local_date" />
+
+            <TextView
+                android:id="@+id/opsin_time_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:singleLine="true"
+                android:text="@string/time_"
+                android:textAlignment="viewStart"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/date_time_guideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/opsin_time_format_label" />
+
+            <TextView
+                android:id="@+id/opsin_local_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/date_time_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/opsin_local_time_format" />
+
+            <TextView
+                android:id="@+id/opsin_sync_local_date_time"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/button_solid_white"
+                android:gravity="center"
+                android:text="@string/sync_local_date_amp_time"
+                android:onClick="@{() -> viewModel.hasSelectOpsinSyncLocalDateTime()}"
+                android:textAlignment="center"
+                android:textColor="@color/color_grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/opsin_time_label" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/date_time_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".5" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/viewpager_vertical_guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1041" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/viewpager_vertical_guideline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9724" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/scroll_view_vertical_guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9500" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

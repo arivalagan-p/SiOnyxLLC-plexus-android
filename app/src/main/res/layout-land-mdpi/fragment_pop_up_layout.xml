@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.sionyx.plexus.ui.home.HomeViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--  popUp info view start-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/pop_up_info_tab_layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/shape_rectangle_background"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/pop_up_info_view_layout_guideline_horizontal_bottom"
+            app:layout_constraintEnd_toEndOf="@+id/pop_up_info_view_layout_guideline_vertical_end"
+            app:layout_constraintStart_toStartOf="@+id/pop_up_info_view_layout_guideline_vertical_start"
+            app:layout_constraintTop_toTopOf="@+id/pop_up_info_view_layout_guideline_horizontal_top">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/pop_up_tabLayout"
+                android:layout_width="185dp"
+                android:layout_height="43dp"
+                android:layout_marginEnd="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/pop_up_tab_layout_vertical_guideline_bottom"
+                app:layout_constraintStart_toStartOf="@+id/pop_up_camera_icon_vertical_guideline_start"
+                app:layout_constraintTop_toTopOf="@+id/pop_up_tab_layout_vertical_guideline_top"
+                app:tabBackground="@drawable/ic_tab_rectangle"
+                app:tabIndicatorColor="@color/color_lightgrey"
+                app:tabIndicatorGravity="bottom"
+                app:tabTextColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/pop_up_cancel_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.onPopUpViewCancel()}"
+                android:src="@drawable/ic_cancel_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/pop_up_info_view_cancel_icon_horizontal_guideline_bottom"
+                app:layout_constraintEnd_toEndOf="@+id/pop_up_info_view_cancel_icon_vertical_guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/pop_up_info_view_cancel_icon_vertical_guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/pop_up_info_view_cancel_icon_horizontal_guideline_top" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/pop_up_camera_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_night_wave_available"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="@+id/pop_up_camera_icon_vertical_guideline_start"
+                app:layout_constraintTop_toTopOf="@+id/pop_up_camera_icon_horizontal_guideline_top" />
+
+            <TextView
+                android:id="@+id/pop_up_camera_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintEnd_toEndOf="@+id/pop_up_camera_icon"
+                app:layout_constraintEnd_toStartOf="@+id/pop_up_tab_layout_vertical_guideline_start"
+                app:layout_constraintStart_toStartOf="@+id/pop_up_camera_icon_vertical_guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/pop_up_camera_icon"
+                tools:text="Aurora Pro [123]" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/pop_up_viewPager"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="30dp"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_constraintBottom_toBottomOf="@id/pop_up_view_pager_horizontal_guideline_bottom"
+                app:layout_constraintEnd_toEndOf="@+id/pop_up_info_view_cancel_icon_vertical_guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/pop_up_tab_layout_vertical_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/pop_up_tabLayout" />
+
+            <!--  info view tab layout guide line-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_tab_layout_vertical_guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.0523" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_tab_layout_vertical_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.1786" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_tab_layout_vertical_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.2594" />
+
+            <!--  pop up camera icon guideline start-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_camera_icon_vertical_guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.1338" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_camera_icon_vertical_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.0343" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_camera_icon_horizontal_guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.2369" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_camera_icon_horizontal_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5564" />
+            <!--    pop up camera icon guideline end-->
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_tab_layout_vertical_guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.8047" />
+
+            <!--popUp info cancel icon guideline view-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_info_view_cancel_icon_horizontal_guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.0743" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_info_view_cancel_icon_horizontal_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.1322" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_info_view_cancel_icon_vertical_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.9232" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_info_view_cancel_icon_vertical_guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.9525" />
+
+            <!--popUp info view pager guide line-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_view_pager_horizontal_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.9228" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!--info layout view container-->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/pop_up_info_view_layout_guideline_vertical_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/land_recycler_view_vertical_start_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/pop_up_info_view_layout_guideline_vertical_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/recycler_view_container_view_layout_margin_end" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/pop_up_info_view_layout_guideline_horizontal_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/recycler_view_container_view_layout_margin_top" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/pop_up_info_view_layout_guideline_horizontal_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="@dimen/recycler_view_container_view_layout_margin_bottom" />
+        <!-- PopUP info view end-->
+
+        <!--  pop up settings view start-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/pop_up_settings_layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/shape_rectangle_background"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/pop_up_settings_layout_guideline_horizontal_bottom"
+            app:layout_constraintEnd_toEndOf="@+id/pop_up_settings_layout_guideline_vertical_end"
+            app:layout_constraintStart_toStartOf="@+id/pop_up_settings_layout_guideline_vertical_start"
+            app:layout_constraintTop_toTopOf="@+id/pop_up_settings_layout_guideline_horizontal_top">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/pop_up_settings_tabLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/pop_up_tab_settings_layout_vertical_guideline_bottom"
+                app:layout_constraintEnd_toEndOf="@+id/pop_up_settings_tab_view_vertical_guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/pop_up_settings_camera_icon_vertical_guideline_start"
+                app:layout_constraintTop_toTopOf="@+id/pop_up_settings_tab_layout_vertical_guideline_top"
+                app:tabBackground="@drawable/ic_tab_rectangle"
+                app:tabIndicatorColor="@color/color_lightgrey"
+                app:tabIndicatorGravity="bottom"
+                app:tabMaxWidth="0dp"
+                app:tabMode="fixed"
+                app:tabTextColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/pop_up_settings_cancel_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.onPopUpViewCancel()}"
+                android:src="@drawable/ic_cancel_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/pop_up_settings_cancel_icon_horizontal_guideline_bottom"
+                app:layout_constraintEnd_toEndOf="@+id/pop_up_settings_cancel_icon_vertical_guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/pop_up_settings_cancel_icon_vertical_guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/pop_up_settings_cancel_icon_horizontal_guideline_top" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/pop_up_settings_camera_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_night_wave_available"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="@+id/pop_up_settings_camera_icon_vertical_guideline_start"
+                app:layout_constraintTop_toTopOf="@+id/pop_up_settings_camera_icon_horizontal_guideline_top" />
+
+            <TextView
+                android:id="@+id/pop_up_settings_camera_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size"
+                app:layout_constraintEnd_toEndOf="@+id/pop_up_settings_camera_icon"
+                app:layout_constraintStart_toStartOf="@+id/pop_up_settings_camera_icon"
+                app:layout_constraintTop_toBottomOf="@+id/pop_up_settings_camera_icon"
+                tools:text="Aurora Pro [123]" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/pop_up_settings_viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="30dp"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_constraintBottom_toBottomOf="@id/pop_up_settings_view_pager_horizontal_guideline_bottom"
+                app:layout_constraintEnd_toEndOf="@+id/pop_up_settings_cancel_icon_vertical_guideline_end"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pop_up_settings_tabLayout" />
+
+            <!--  pop up settings tab layout guide line-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_settings_tab_layout_vertical_guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.0523" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_tab_settings_layout_vertical_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.1786" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_tab_settings_layout_vertical_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.2594" />
+
+            <!--  pop up settings camera icon guideline start-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_settings_camera_icon_vertical_guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.1338" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_settings_camera_icon_vertical_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.0343" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_settings_camera_icon_horizontal_guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.2369" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_settings_camera_icon_horizontal_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5564" />
+            <!--    pop up settings camera icon guideline end-->
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_settings_tab_layout_vertical_guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.8047" />
+
+            <!--pop up settings cancel icon guideline view-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_settings_cancel_icon_horizontal_guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.0743" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_settings_cancel_icon_horizontal_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.1322" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_settings_cancel_icon_vertical_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.9232" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_settings_cancel_icon_vertical_guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.9525" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_settings_tab_view_vertical_guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.8047" />
+
+            <!--pop up settings view pager guide line-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_settings_view_pager_horizontal_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.9228" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_settings_view_pager_vertical_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.3877" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_settings_icon_vertical_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.2036" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/pop_up_settings_view_pager_vertical_guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.8535" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!--pop up settings layout view container-->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/pop_up_settings_layout_guideline_vertical_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/land_recycler_view_vertical_start_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/pop_up_settings_layout_guideline_vertical_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/recycler_view_container_view_layout_margin_end" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/pop_up_settings_layout_guideline_horizontal_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/recycler_view_container_view_layout_margin_top" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/pop_up_settings_layout_guideline_horizontal_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="@dimen/recycler_view_container_view_layout_margin_bottom" />
+        <!-- PopUP settings view end-->
+
+        <!--  pop-Up time zone list view layout-->
+        <include
+            android:id="@+id/pop_up_time_zone_list_layout"
+            layout="@layout/pop_up_time_zone_list_view" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

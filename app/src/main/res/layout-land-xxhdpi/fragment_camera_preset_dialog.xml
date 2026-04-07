@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.dome.librarynightwave.viewmodel.CameraPresetsViewModel" />
+
+        <variable
+            name="cameraName"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/camera_preset_load_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/camera_preset_layout_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/ic_tab_layout_background"
+            app:layout_constraintBottom_toBottomOf="@+id/tab_view_horizontal_guideline_bottom"
+            app:layout_constraintEnd_toEndOf="@+id/tab_view_vertical_guideline_end"
+            app:layout_constraintStart_toStartOf="@+id/tab_view_vertical_guideline_start"
+            app:layout_constraintTop_toTopOf="@+id/tab_view_horizontal_guideline_top">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/load_settings"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/tab_layout_view_vertical_guideline_start"
+                    app:layout_constraintTop_toTopOf="@+id/cancel_icon_horizontal_guideline_top" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/camera_pre_settings_cancel_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> viewModel.onCancelPresetView()}"
+                    android:src="@drawable/ic_cancel_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/cancel_icon_horizontal_guideline_bottom"
+                    app:layout_constraintEnd_toEndOf="@+id/cancel_icon_vertical_guideline_end"
+                    app:layout_constraintStart_toStartOf="@+id/cancel_icon_vertical_guideline_start"
+                    app:layout_constraintTop_toTopOf="@+id/cancel_icon_horizontal_guideline_top" />
+
+                <View
+                    android:id="@+id/view_line"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/white"
+                    app:layout_constraintEnd_toEndOf="@id/cancel_icon_vertical_guideline_end"
+                    app:layout_constraintStart_toStartOf="@+id/tab_layout_view_vertical_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@+id/cancel_icon_horizontal_guideline_bottom" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/preset_recyler_view"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintBottom_toBottomOf="@id/view_line2"
+                    app:layout_constraintEnd_toEndOf="@id/viewpager_vertical_guideline_end"
+                    app:layout_constraintStart_toStartOf="@+id/tab_layout_view_vertical_guideline_start"
+                    app:layout_constraintTop_toBottomOf="@id/view_line"
+                    tools:listitem="@layout/camera_presettings_view" />
+
+                <TextView
+                    android:id="@+id/empty_view"
+                    android:layout_width="0dp"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@+id/view_line"
+                    app:layout_constraintBottom_toBottomOf="@+id/view_line2"
+                    app:layout_constraintStart_toStartOf="@+id/tab_layout_view_vertical_guideline_start"
+                    app:layout_constraintEnd_toEndOf="@+id/viewpager_vertical_guideline_end"
+                    android:text="@string/no_records_found"
+                    android:textColor="@color/white"
+                    android:gravity="center"/>
+
+                <View
+                    android:id="@+id/view_line2"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/white"
+                    app:layout_constraintBottom_toTopOf="@+id/delete_preset"
+                    app:layout_constraintEnd_toEndOf="@id/cancel_icon_vertical_guideline_end"
+                    app:layout_constraintStart_toStartOf="@+id/tab_layout_view_vertical_guideline_start" />
+
+                <TextView
+                    android:id="@+id/delete_preset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/button_stroke"
+                    android:gravity="center"
+                    android:text="@string/delete"
+                    android:onClick="@{() -> viewModel.onDeletePreset()}"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@+id/view_pager_horizontal_guideline_bottom"
+                    app:layout_constraintEnd_toStartOf="@+id/save_preset" />
+
+                <TextView
+                    android:id="@+id/save_preset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_solid_white"
+                    android:gravity="center"
+                    android:text="@string/apply"
+                    android:onClick="@{() -> viewModel.onApplyPreset()}"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@id/view_pager_horizontal_guideline_bottom"
+                    app:layout_constraintEnd_toEndOf="@+id/cancel_icon_vertical_guideline_end" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/tab_layout_vertical_guideline_top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.0309" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/tab_layout_vertical_guideline_bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.1786" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/tab_layout_view_vertical_guideline_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.6477" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/tab_layout_view_vertical_guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=" 0.0321" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/viewpager_vertical_guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.1041" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/viewpager_vertical_guideline_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9724" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/view_pager_horizontal_guideline_bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.9381" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/cancel_icon_vertical_guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9310" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/cancel_icon_vertical_guideline_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9617" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/cancel_icon_horizontal_guideline_top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.0618" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/cancel_icon_horizontal_guideline_bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.1340" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.sionyx.plexus.utils.circulardotprogressbar.CircleLoadingIndicatorView
+                android:id="@+id/preset_progress_bar"
+                style="@style/CircleLoadingIndicatorView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:indicatorColor="@color/light_white"
+                android:visibility="gone"
+                app:indicatorName="DotCircleProgressIndicator"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.499"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/tab_view_vertical_guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.2742" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/tab_view_vertical_guideline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9794" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/tab_view_horizontal_guideline_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/tab_view_horizontal_guideline_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.9299" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/camera_icon_horizontal_guideline_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.0700" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/camera_icon_horizontal_guideline_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=" 0.2102" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/camera_name_horizontal_guideline_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.1238" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/camera_name_horizontal_guideline_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.1612" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

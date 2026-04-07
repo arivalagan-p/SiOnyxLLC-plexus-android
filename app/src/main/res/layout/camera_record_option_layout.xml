@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.sionyx.plexus.ui.camera.CameraViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/camera_record_view_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/gallery_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:scaleY=".9"
+                android:scaleX=".9"
+                android:onClick="@{()->viewModel.onSelectGallery()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/gallery_btn_bg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_rectangle_svg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/gallery_btn_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_gallery_view"
+                    app:layout_constraintBottom_toBottomOf="@id/gallery_btn_bg"
+                    app:layout_constraintEnd_toEndOf="@id/gallery_btn_bg"
+                    app:layout_constraintStart_toStartOf="@id/gallery_btn_bg"
+                    app:layout_constraintTop_toTopOf="@+id/gallery_btn_bg" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/camera_image_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:scaleY=".9"
+                android:scaleX=".9"
+                android:onClick="@{()-> viewModel.onCameraRecordType(true)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/gallery_btn">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/camera_image_btn_bg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_rectangle_svg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/camera_image_btn_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_camera_icon_new"
+                    app:layout_constraintBottom_toBottomOf="@id/camera_image_btn_bg"
+                    app:layout_constraintEnd_toEndOf="@id/camera_image_btn_bg"
+                    app:layout_constraintStart_toStartOf="@id/camera_image_btn_bg"
+                    app:layout_constraintTop_toTopOf="@+id/camera_image_btn_bg" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/camera_video_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:scaleY=".9"
+                android:scaleX=".9"
+                android:onClick="@{()-> viewModel.onCameraRecordType(false)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/camera_image_btn">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/camera_video_btn_bg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_rectangle_svg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/camera_video_btn_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_video_icon_new"
+                    app:layout_constraintBottom_toBottomOf="@id/camera_video_btn_bg"
+                    app:layout_constraintEnd_toEndOf="@id/camera_video_btn_bg"
+                    app:layout_constraintStart_toStartOf="@id/camera_video_btn_bg"
+                    app:layout_constraintTop_toTopOf="@+id/camera_video_btn_bg" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/camera_record_option_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/camera_record_option_cancel_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:scaleY=".9"
+                android:scaleX=".9"
+                android:onClick="@{() -> viewModel.onSelectRecordOptionsCancel()}"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/camera_record_option_cancel_btn_bg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_rectangle_svg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/camera_record_option_cancel_btn_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_circle_cancel"
+                    app:layout_constraintBottom_toBottomOf="@id/camera_record_option_cancel_btn_bg"
+                    app:layout_constraintEnd_toEndOf="@id/camera_record_option_cancel_btn_bg"
+                    app:layout_constraintStart_toStartOf="@id/camera_record_option_cancel_btn_bg"
+                    app:layout_constraintTop_toTopOf="@+id/camera_record_option_cancel_btn_bg" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/camera_record_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:scaleY=".9"
+                android:scaleX=".9"
+                app:layout_constraintEnd_toStartOf="@+id/camera_record_option_cancel_btn">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/camera_record_btn_bg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_rectangle_svg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/camera_record_btn_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_camera_record"
+                    android:onClick="@{() -> viewModel.onRecordSaveToCamera()}"
+                    app:layout_constraintBottom_toBottomOf="@id/camera_record_btn_bg"
+                    app:layout_constraintEnd_toEndOf="@id/camera_record_btn_bg"
+                    app:layout_constraintStart_toStartOf="@id/camera_record_btn_bg"
+                    app:layout_constraintTop_toTopOf="@+id/camera_record_btn_bg" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--  android:onClick="@{() -> viewModel.onCameraRecord()}" use below code either video or image-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/mobile_record_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:scaleY=".9"
+                android:scaleX=".9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/camera_record_btn">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/mobile_record_btn_bg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_rectangle_svg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+<!--        for this is video record->        viewModel.onCameraLiveViewMenuVideo()-->
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/mobile_record_btn_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_mobile_record"
+                    android:onClick="@{() -> viewModel.onRecordSaveToMobile()}"
+                    app:layout_constraintBottom_toBottomOf="@id/mobile_record_btn_bg"
+                    app:layout_constraintEnd_toEndOf="@id/mobile_record_btn_bg"
+                    app:layout_constraintStart_toStartOf="@id/mobile_record_btn_bg"
+                    app:layout_constraintTop_toTopOf="@+id/mobile_record_btn_bg" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:id="@+id/record_btn"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:visibility="gone"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent">-->
+
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                android:id="@+id/record_background"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:onClick="@{() -> viewModel.onCameraRecord()}"-->
+<!--                android:src="@drawable/ic_rectangle"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                android:id="@+id/record_icon"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:onClick="@{() -> viewModel.onCameraRecord()}"-->
+<!--                android:src="@drawable/ic_record_menu_btn"-->
+<!--                app:layout_constraintBottom_toBottomOf="@id/record_background"-->
+<!--                app:layout_constraintEnd_toEndOf="@id/record_background"-->
+<!--                app:layout_constraintStart_toStartOf="@id/record_background"-->
+<!--                app:layout_constraintTop_toTopOf="@+id/record_background" />-->
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

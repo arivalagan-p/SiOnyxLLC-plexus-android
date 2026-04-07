@@ -1,0 +1,15 @@
+{
+   "Camera_Model":"SIOYNX OPSIN MDV-400C",
+      "versions": {
+          "Release":"2.1.0-RC5",
+           "FPGA":"206.2",
+           "RISCV":"24.2.1",
+           "OVERLAY":"1.1.4",
+           "RECOVERY":"24.2.1-RECOVERY",
+           "WIFI_RTOS":"2.4.2",
+           "WIFI_BOOT": "",
+           "WIFI_BLE": "1.1.0"
+      },
+   "sequence":["WIFI_RTOS", "RISCV",  "WIFI_BLE", "RISCV_RECOVERY", "FACTORY"],
+   "release_notes":"- Fix issue where BLE upgrade stuck at 88%."
+}

@@ -1,0 +1,1713 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.sionyx.plexus.ui.dialog.GalleryAllViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/constraint_top_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/constraint_bottom_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.9299" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/constraint_start_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.2678" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/constraint_end_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9730" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/gallery_root_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/ic_tab_layout_background"
+            app:layout_constraintBottom_toBottomOf="@+id/constraint_bottom_guideline"
+            app:layout_constraintEnd_toEndOf="@+id/constraint_end_guideline"
+            app:layout_constraintStart_toStartOf="@+id/constraint_start_guideline"
+            app:layout_constraintTop_toTopOf="@+id/constraint_top_guideline">
+
+            <!-- gallery view all,video,photo tab layout view -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/gallery_all_view_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/gallery_all_view_tablayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toTopOf="@+id/gallery_all_view_tablayout_bottom_guideline"
+                    app:layout_constraintEnd_toStartOf="@+id/gallery_all_view_viewpager_end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/gallery_all_view_tablayout_start_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/gallery_all_view_cancel_icon_top_guideline"
+                    app:tabBackground="@drawable/ic_tab_rectangle"
+                    app:tabGravity="fill"
+                    app:tabIndicatorColor="@color/color_lightgrey"
+                    app:tabIndicatorFullWidth="true"
+                    app:tabIndicatorGravity="bottom"
+                    app:tabMode="fixed"
+                    app:tabSelectedTextColor="@color/white"
+                    app:tabTextColor="#9C9595" />
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/gallery_all_view_viewpager"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="20dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@+id/gallery_all_view_viewpager_bottom_guideline"
+                    app:layout_constraintEnd_toEndOf="@+id/gallery_all_view_manage_button_start_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/gallery_all_view_tablayout_start_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/gallery_all_view_tablayout_bottom_guideline" />
+
+                <ImageView
+                    android:id="@+id/gallery_all_view_Cancel_Icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> viewModel.onCancelGalleryAllView()}"
+                    android:src="@drawable/ic_cancel_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/gallery_all_view_cancel_icon_bottom_guideline"
+                    app:layout_constraintEnd_toEndOf="@+id/gallery_all_view_cancel_Icon_end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/gallery_all_view_cancel_Icon_start_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/gallery_all_view_cancel_icon_top_guideline" />
+
+                <TextView
+                    android:id="@+id/gallery_all_view_Manage_Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/button_stroke"
+                    android:gravity="center"
+                    android:onClick="@{()-> viewModel.onSelectManage()}"
+                    android:padding="5dp"
+                    android:text="@string/manage"
+                    android:textColor="#fff"
+                    android:textSize="12sp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toTopOf="@+id/gallery_all_view_Back_Button"
+                    app:layout_constraintEnd_toEndOf="@+id/gallery_all_view_manage_back_button_end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/gallery_all_view_manage_button_start_guideline" />
+
+                <TextView
+                    android:id="@+id/gallery_all_view_Back_Button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_stroke"
+                    android:backgroundTint="#FFFFFF"
+                    android:gravity="center"
+                    android:onClick="@{()-> viewModel.onSelectGalleryBack()}"
+                    android:padding="5dp"
+                    android:text="@string/back"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toTopOf="@+id/gallery_all_view_back_button_bottom_guideline"
+                    app:layout_constraintEnd_toStartOf="@+id/gallery_all_view_manage_back_button_end_guideline"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="@+id/gallery_all_view_manage_button_start_guideline" />
+
+                <!--gallery manage view layout-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/live_gallery_manage_option_buttons"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/live_gallery_manage_btns_guideline_bottom"
+                    app:layout_constraintEnd_toEndOf="@+id/live_gallery_manage_btns_guideline_end"
+                    app:layout_constraintStart_toStartOf="@+id/live_gallery_manage_btns_guideline_start"
+                    app:layout_constraintTop_toTopOf="@id/live_gallery_manage_btns_guideline_top">
+
+                    <TextView
+                        android:id="@+id/gallery_manage_view_erase_button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_stroke"
+                        android:gravity="center"
+                        android:onClick="@{()-> viewModel.onManageSelectErase()}"
+                        android:padding="5dp"
+                        android:text="@string/erase"
+                        android:layout_marginBottom="8dp"
+                        android:textColor="#fff"
+                        android:textSize="12sp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toTopOf="@+id/gallery_manage_view_back_button"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/gallery_manage_view_download_button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_stroke"
+                        android:gravity="center"
+                        android:onClick="@{() ->viewModel.onManageSelectDownload()}"
+                        android:padding="5dp"
+                        android:text="@string/download"
+                        android:layout_marginBottom="8dp"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toTopOf="@+id/gallery_manage_view_erase_button"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/gallery_manage_view_select_all_button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_stroke"
+                        android:gravity="center"
+                        android:onClick="@{()-> viewModel.onManageSelectAll()}"
+                        android:padding="5dp"
+                        android:text="@string/select_all"
+                        android:layout_marginBottom="8dp"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toTopOf="@+id/gallery_manage_view_download_button"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/gallery_manage_view_back_button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_stroke"
+                        android:backgroundTint="#FFFFFF"
+                        android:gravity="center"
+                        android:onClick="@{()-> viewModel.onManageViewBack()}"
+                        android:padding="5dp"
+                        android:text="@string/back"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/live_gallery_manage_btns_guideline_top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/live_gallery_manage_btns_guideline_bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.9312" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/live_gallery_manage_btns_guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.7901" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/live_gallery_manage_btns_guideline_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9678" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gallery_all_view_tablayout_start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.0414" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gallery_all_view_manage_button_start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.7901" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gallery_all_view_cancel_Icon_start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9418" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gallery_all_view_tablayout_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.2576" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gallery_all_view_viewpager_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.7366" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gallery_all_view_manage_back_button_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9678" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gallery_all_view_cancel_Icon_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9693" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gallery_all_view_tablayout_top_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.0306" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gallery_all_view_tablayout_bottom_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.1785" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gallery_all_view_manage_button_bottom_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.7525" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gallery_all_view_cancel_icon_bottom_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.1202" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gallery_all_view_cancel_icon_top_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.0615" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gallery_all_view_manage_button_top_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.6426" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gallery_all_view_back_button_top_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_end="51dp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gallery_all_view_viewpager_bottom_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.8900" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gallery_all_view_back_button_bottom_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.9312" />
+
+                <View
+                    android:id="@+id/gallery_all_view_View"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="#fff"
+                    app:layout_constraintBottom_toBottomOf="@+id/gallery_all_view_tablayout"
+                    app:layout_constraintEnd_toStartOf="@+id/gallery_all_view_cancel_Icon_start_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/gallery_all_view_tablayout_start_guideline" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Recording info layout-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/recording_info_Layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/recording_info_view_cancel_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()-> viewModel.onSelectRecordingInfoCancel()}"
+                    app:layout_constraintBottom_toBottomOf="@+id/recording_info_view_cancel_icon_bottom_guideline"
+                    app:layout_constraintEnd_toStartOf="@+id/recording_info_view_cancel_icon_right_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/recording_info_view_cancel_icon_start_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/recording_info_view_title_text_top_guideline"
+                    app:srcCompat="@drawable/ic_cancel_icon" />
+
+                <TextView
+                    android:id="@+id/recording_info_view_title_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recording_info"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/recording_info_view_cancel_icon"
+                    app:layout_constraintStart_toStartOf="@+id/recording_info_view_video_thumbnail_start_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/recording_info_view_cancel_icon" />
+
+                <View
+                    android:id="@+id/recording_info_view_view_line"
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:background="#fff"
+                    app:layout_constraintBottom_toBottomOf="@+id/recording_info_view_title_text_bottom_guideline"
+                    app:layout_constraintEnd_toStartOf="@+id/recording_info_view_title_text_end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/recording_info_view_title_text_start_guideline" />
+
+                <ImageView
+                    android:id="@+id/recording_info_view_twitter"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toTopOf="@+id/recording_info_view_twitter_bottom_guideline"
+                    app:layout_constraintEnd_toStartOf="@+id/recording_info_view_twitter_end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/recording_info_view_twitter_start_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/recording_info_view_twitter_top_guideline"
+                    app:srcCompat="@drawable/ic_tweeter" />
+
+                <ImageView
+                    android:id="@+id/recording_info_view_instagram"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/recording_info_view_twitter_bottom_guideline"
+                    app:layout_constraintEnd_toEndOf="@+id/recording_info_view_instagram_end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/recording_info_view_instagram_start_gideline"
+                    app:layout_constraintTop_toTopOf="@+id/recording_info_view_twitter_top_guideline"
+                    app:srcCompat="@drawable/ic_instagram" />
+
+                <ImageView
+                    android:id="@+id/recording_info_view_youtube"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/recording_info_view_twitter_bottom_guideline"
+                    app:layout_constraintEnd_toEndOf="@+id/recording_info_view_youtube_end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/recording_info_view_youtube_start_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/recording_info_view_twitter_top_guideline"
+                    app:srcCompat="@drawable/ic_youtube" />
+
+                <ImageView
+                    android:id="@+id/recording_info_view_facebook"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/recording_info_view_twitter_bottom_guideline"
+                    app:layout_constraintEnd_toEndOf="@+id/recording_info_view_fb_end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/recording_info_view_fb_start_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/recording_info_view_twitter_top_guideline"
+                    app:srcCompat="@drawable/ic_facebook" />
+
+                <TextView
+                    android:id="@+id/recording_info_view_delete_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_stroke"
+                    android:gravity="center"
+                    android:onClick="@{()-> viewModel.onSelectRecordingInfoDelete()}"
+                    android:padding="5dp"
+                    android:text="@string/delete_recording"
+                    android:textColor="@color/white"
+                    android:textStyle="normal"
+                    app:layout_constraintBottom_toTopOf="@+id/recording_info_view_delete_bottom_guideline"
+                    app:layout_constraintEnd_toEndOf="@+id/recording_info_view_fb_end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/recording_info_view_twitter_start_guideline" />
+
+                <TextView
+                    android:id="@+id/recording_info_view_back_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_stroke"
+                    android:gravity="center"
+                    android:onClick="@{()->viewModel.onSelectRecordInfoBack()}"
+                    android:padding="5dp"
+                    android:text="@string/back"
+                    android:textColor="@color/white"
+                    android:textStyle="normal"
+                    app:layout_constraintBottom_toBottomOf="@+id/recording_info_view_back_bottom_guideline"
+                    app:layout_constraintEnd_toEndOf="@+id/recording_info_view_fb_end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/recording_info_view_twitter_start_guideline" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/thumbnail_holder"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintDimensionRatio="H,16:9"
+                    app:layout_constraintEnd_toEndOf="@+id/recording_info_view_video_thumbnail_end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/recording_info_view_video_thumbnail_start_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/recording_info_view_video_thumbnail_top_guideline">
+
+                    <com.sionyx.plexus.ui.home.RectangleImageView
+                        android:id="@+id/recording_info_view_video_thumbnail"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:onClick="@{()-> viewModel.onSelectImageInfo()}"
+                        android:scaleType="fitXY"
+                        app:layout_constraintDimensionRatio="H,16:9"
+                        app:layout_constraintEnd_toEndOf="@+id/thumbnail_holder"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/thumbnail_holder"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <ImageView
+                    android:id="@+id/recording_info_view_play_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()-> viewModel.onSelectRecordingInfoPlay()}"
+                    android:src="@drawable/ic_play_button"
+                    app:layout_constraintBottom_toBottomOf="@+id/thumbnail_holder"
+                    app:layout_constraintEnd_toEndOf="@+id/thumbnail_holder"
+                    app:layout_constraintStart_toStartOf="@+id/thumbnail_holder"
+                    app:layout_constraintTop_toTopOf="@+id/thumbnail_holder" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/recording_info_view_detail_text_view_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintBottom_toTopOf="@+id/recording_info_view_back_bottom_guideline"
+                    app:layout_constraintEnd_toStartOf="@+id/recording_info_view_detail_item_view_end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/recording_info_view_video_thumbnail_start_guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/thumbnail_holder">
+
+                    <ScrollView
+                        android:id="@+id/recording_info_scroll_view"
+                        style="@style/scrollbar_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp">
+
+                            <TextView
+                                android:id="@+id/recording_info_view_text_image_date"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:text="@string/date"
+                                android:textAllCaps="true"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="@+id/recording_info_view_video_date"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_chainStyle="spread_inside" />
+
+                            <TextView
+                                android:id="@+id/recording_info_view_text_image_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:text="@string/time"
+                                android:textAllCaps="true"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="@+id/recording_info_view_video_time"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/recording_info_view_video_time" />
+
+                            <TextView
+                                android:id="@+id/recording_info_view_text_duration"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:text="@string/duration"
+                                android:textAllCaps="true"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="@+id/recording_info_view_video_duration"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/recording_info_view_video_duration" />
+
+                            <TextView
+                                android:id="@+id/recording_info_view_text_image_location"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:text="@string/location"
+                                android:textAllCaps="true"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="@+id/recording_info_view_video_location"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/recording_info_view_video_location" />
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/recording_info_detail_holder_line_divider_horizontal_guideline_end"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                app:layout_constraintGuide_percent="0.5" />
+
+                            <TextView
+                                android:id="@+id/recording_info_view_video_date"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
+                                android:text=""
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toTopOf="@+id/recording_info_view_video_time"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="@+id/recording_info_detail_holder_line_divider_horizontal_guideline_end"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_chainStyle="spread_inside" />
+
+                            <TextView
+                                android:id="@+id/recording_info_view_video_time"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:gravity="end"
+                                android:text=""
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toTopOf="@+id/recording_info_view_video_duration"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="@+id/recording_info_detail_holder_line_divider_horizontal_guideline_end"
+                                app:layout_constraintTop_toBottomOf="@+id/recording_info_view_video_date" />
+
+                            <TextView
+                                android:id="@+id/recording_info_view_video_duration"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:gravity="end"
+                                android:text=""
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toTopOf="@+id/recording_info_view_video_location"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="@+id/recording_info_detail_holder_line_divider_horizontal_guideline_end"
+                                app:layout_constraintTop_toBottomOf="@+id/recording_info_view_video_time" />
+
+                            <TextView
+                                android:id="@+id/recording_info_view_video_location"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:gravity="end"
+                                android:text=""
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="@+id/recording_info_detail_holder_line_divider_horizontal_guideline_end"
+                                app:layout_constraintTop_toBottomOf="@+id/recording_info_view_video_duration" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </ScrollView>
+
+                    <ScrollView
+                        android:id="@+id/image_info_scroll_view"
+                        style="@style/scrollbar_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:visibility="visible">
+
+                            <TextView
+                                android:id="@+id/recording_info_view_text_date"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:text="@string/date"
+                                android:textAllCaps="true"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="@+id/recording_info_view_date"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_chainStyle="spread_inside" />
+
+                            <TextView
+                                android:id="@+id/recording_info_view_text_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:text="@string/time"
+                                android:textAllCaps="true"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="@+id/recording_info_view_time"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/recording_info_view_time" />
+
+                            <TextView
+                                android:id="@+id/recording_info_view_text_model"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:text="@string/model"
+                                android:textAllCaps="true"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="@+id/recording_info_view_model"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/recording_info_view_model" />
+
+                            <TextView
+                                android:id="@+id/recording_info_view_text_software"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:text="@string/software"
+                                android:textAllCaps="true"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="@+id/recording_info_view_software"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/recording_info_view_software" />
+
+                            <TextView
+                                android:id="@+id/recording_info_view_text_aperture"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:text="@string/aperture"
+                                android:textAllCaps="true"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="@+id/recording_info_view_aperture"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/recording_info_view_aperture" />
+
+                            <TextView
+                                android:id="@+id/recording_info_view_text_focal_length"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:text="@string/focal_length"
+                                android:textAllCaps="true"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="@+id/recording_info_view_focal_length"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/recording_info_view_focal_length" />
+
+                            <TextView
+                                android:id="@+id/recording_info_view_text_resolution"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:text="@string/resolution"
+                                android:textAllCaps="true"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="@+id/recording_info_view_resolution"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/recording_info_view_resolution" />
+
+                            <TextView
+                                android:id="@+id/recording_info_view_text_location"
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                android:text="@string/location"
+                                android:textAllCaps="true"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="@+id/recording_info_view_location"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/recording_info_view_location" />
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/image_info_detail_holder_line_divider_horizontal_guideline_end"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                app:layout_constraintGuide_percent="0.5" />
+
+                            <TextView
+                                android:id="@+id/recording_info_view_date"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
+                                android:text=""
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toTopOf="@+id/recording_info_view_time"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="@+id/image_info_detail_holder_line_divider_horizontal_guideline_end"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_chainStyle="spread_inside" />
+
+                            <TextView
+                                android:id="@+id/recording_info_view_time"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:gravity="end"
+                                android:text=""
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toTopOf="@+id/recording_info_view_model"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="@+id/image_info_detail_holder_line_divider_horizontal_guideline_end"
+                                app:layout_constraintTop_toBottomOf="@+id/recording_info_view_date" />
+
+                            <TextView
+                                android:id="@+id/recording_info_view_model"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:gravity="end"
+                                android:text=""
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toTopOf="@+id/recording_info_view_software"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="@+id/image_info_detail_holder_line_divider_horizontal_guideline_end"
+                                app:layout_constraintTop_toBottomOf="@+id/recording_info_view_time" />
+
+                            <TextView
+                                android:id="@+id/recording_info_view_software"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:gravity="end"
+                                android:text=""
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toTopOf="@+id/recording_info_view_aperture"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="@+id/image_info_detail_holder_line_divider_horizontal_guideline_end"
+                                app:layout_constraintTop_toBottomOf="@+id/recording_info_view_model" />
+
+                            <TextView
+                                android:id="@+id/recording_info_view_aperture"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:gravity="end"
+                                android:text=""
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toTopOf="@+id/recording_info_view_focal_length"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="@+id/image_info_detail_holder_line_divider_horizontal_guideline_end"
+                                app:layout_constraintTop_toBottomOf="@+id/recording_info_view_software" />
+
+                            <TextView
+                                android:id="@+id/recording_info_view_focal_length"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:gravity="end"
+                                android:text=""
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toTopOf="@+id/recording_info_view_resolution"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="@+id/image_info_detail_holder_line_divider_horizontal_guideline_end"
+                                app:layout_constraintTop_toBottomOf="@+id/recording_info_view_aperture" />
+
+                            <TextView
+                                android:id="@+id/recording_info_view_resolution"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:gravity="end"
+                                android:text=""
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toTopOf="@+id/recording_info_view_location"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="@+id/image_info_detail_holder_line_divider_horizontal_guideline_end"
+                                app:layout_constraintTop_toBottomOf="@+id/recording_info_view_focal_length" />
+
+                            <TextView
+                                android:id="@+id/recording_info_view_location"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:gravity="end"
+                                android:text=""
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="@+id/image_info_detail_holder_line_divider_horizontal_guideline_end"
+                                app:layout_constraintTop_toBottomOf="@+id/recording_info_view_resolution" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </ScrollView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/recording_info_view_video_title"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="10dp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@+id/recording_info_view_video_title_bottom_guideline"
+                    app:layout_constraintEnd_toEndOf="@+id/recording_info_view_video_title_end_guideline"
+                    app:layout_constraintStart_toEndOf="@+id/thumbnail_holder"
+                    app:layout_constraintTop_toTopOf="@+id/recording_info_view_video_title_top_guideline" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_cancel_icon_start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9418" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_title_text_start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.0267" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_detail_item_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.3093" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_detail_item_view_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5313" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_video_thumbnail_start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.0444" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_detail_constraint2_start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.2664" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_video_thumbnail_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.2220" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_video_title_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.4587" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_pause_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.1546" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_pause_start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.1148" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_twitter_start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5773" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_instagram_start_gideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.6875" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_youtube_start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.7963" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_youtube_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.8453" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_fb_start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9065" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_fb_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9555" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_instagram_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.7366" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_twitter_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.6263" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_title_text_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9777" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_cancel_icon_right_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9693" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_cancel_icon_top_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.0615" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_cancel_icon_bottom_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.1202" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_twitter_top_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.2680" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_pause_top_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.3367" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_pause_bottom_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.4261" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_twitter_bottom_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.3780" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_video_thumbnail_top_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.2852" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_video_title_top_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.2749" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_video_thumbnail_bottom_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.4742" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_video_title_bottom_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.4192" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_delete_bottom_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.7216" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_back_bottom_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.8934" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_delete_top_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.6116" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_detail_both_top_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.5567" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_detail_both_bottom_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.9740" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_title_text_bottom_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.1919" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_view_title_text_top_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.0580" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--video player layout-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/video_player_layout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:keepScreenOn="true"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/video_player_view_video_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/video_player_view_title_end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/video_player_view_title_start_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/video_player_view_title_top_guideline" />
+
+                <ImageView
+                    android:id="@+id/video_player_view_play_icon_outer"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:onClick="@{()-> viewModel.onRecordingInfoVideoPlayerPlay()}"
+                    android:src="@drawable/ic_play_outline"
+                    app:layout_constraintBottom_toTopOf="@+id/video_player_view_play_outer_bottom_guideline"
+                    app:layout_constraintEnd_toStartOf="@+id/video_player_view_play_outer_end_guideline"
+                    app:layout_constraintStart_toEndOf="@+id/video_player_view_play_outer_start_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/video_player_view_play_outer_top_guideline" />
+
+                <ImageView
+                    android:id="@+id/video_player_view_play_icon"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:onClick="@{()-> viewModel.onRecordingInfoVideoPlayerPlay()}"
+                    android:src="@drawable/ic_play_icon"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/video_player_view_play_bottom_guideline"
+                    app:layout_constraintEnd_toStartOf="@+id/video_player_view_play_end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/video_player_view_play_start_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/video_player_view_play_top_guideline" />
+
+                <ImageView
+                    android:id="@+id/video_player_view_pause_icon_outer"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:onClick="@{()-> viewModel.onRecordingInfoVideoPasue()}"
+                    android:src="@drawable/ic_pause_outline"
+                    app:layout_constraintBottom_toTopOf="@+id/video_player_view_play_outer_bottom_guideline"
+                    app:layout_constraintEnd_toStartOf="@+id/video_player_view_pause_end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/video_player_view_pause_start_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/video_player_view_play_outer_top_guideline" />
+
+                <TextView
+                    android:id="@+id/video_player_image_update"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintBottom_toTopOf="@+id/video_player_view_play_outer_bottom_guideline"
+                    app:layout_constraintEnd_toStartOf="@+id/video_player_view_pause_end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/video_player_view_pause_start_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/video_player_view_play_outer_top_guideline" />
+
+
+                <ImageView
+                    android:id="@+id/video_player_view_pause_icon_left"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:onClick="@{()-> viewModel.onRecordingInfoVideoPasue()}"
+                    android:src="@drawable/ic_pause_icon_left"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/video_player_view_play_bottom_guideline"
+                    app:layout_constraintEnd_toStartOf="@+id/video_player_view_pause1_end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/video_player_view_pause1_start_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/video_player_view_play_top_guideline" />
+
+                <ImageView
+                    android:id="@+id/video_player_view_pause_icon_end"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:onClick="@{()-> viewModel.onRecordingInfoVideoPasue()}"
+                    android:src="@drawable/ic_pause_icon_left"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/video_player_view_play_bottom_guideline"
+                    app:layout_constraintEnd_toStartOf="@+id/video_player_view_pause2_end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/video_player_view_pause2_start_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/video_player_view_play_top_guideline" />
+
+                <ImageView
+                    android:id="@+id/video_player_view_stop_icon_outer"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:onClick="@{()-> viewModel.onRecordingInfoVideoStop()}"
+                    android:src="@drawable/ic_stop_outline"
+                    app:layout_constraintBottom_toTopOf="@+id/video_player_view_play_outer_bottom_guideline"
+                    app:layout_constraintEnd_toStartOf="@+id/video_player_view_outer_stop_end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/video_player_view_stop_outer_start_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/video_player_view_play_outer_top_guideline" />
+
+                <ImageView
+                    android:id="@+id/video_player_view_stop_icon"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:onClick="@{()-> viewModel.onRecordingInfoVideoStop()}"
+                    android:src="@drawable/ic_stop_outline"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/video_player_view_play_bottom_guideline"
+                    app:layout_constraintEnd_toStartOf="@+id/video_player_view_stop_end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/video_player_view_stop_start_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/video_player_view_play_top_guideline" />
+
+                <TextView
+                    android:id="@+id/video_player_view_back_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_stroke"
+                    android:backgroundTint="@color/white"
+                    android:gravity="center"
+                    android:onClick="@{()-> viewModel.onRecordingInfoVideoPlayerBack()}"
+                    android:padding="5dp"
+                    android:text="@string/back"
+                    android:textColor="#000000"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toTopOf="@+id/video_player_view_back_btn_bottom_guideline"
+                    app:layout_constraintEnd_toStartOf="@+id/video_player_view_back_btn_end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/video_player_view_back_btn_start_guideline" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/video_player_view_View"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="23dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="H,16:9"
+                    app:layout_constraintEnd_toStartOf="@+id/video_player_view_title_start_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/video_player_view_video_left_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/view4">
+
+                    <VideoView
+                        android:id="@+id/video_player_view_video_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:keepScreenOn="true"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.sionyx.plexus.ui.home.RectangleImageView
+                        android:id="@+id/recording_video_player_image_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:scaleType="fitXY"
+                        android:visibility="gone"
+                        app:layout_constraintDimensionRatio="H,16:9"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/video_player_play_icon"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:onClick="@{()-> viewModel.onRecordingInfoVideoPlayerPlay()}"
+                        android:src="@drawable/ic_play_button"
+                        app:layout_constraintBottom_toBottomOf="@+id/video_player_view_video_view"
+                        app:layout_constraintEnd_toEndOf="@+id/video_player_view_video_view"
+                        app:layout_constraintStart_toStartOf="@+id/video_player_view_video_view"
+                        app:layout_constraintTop_toTopOf="@+id/video_player_view_video_view" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:id="@+id/view4"
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:background="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@id/video_player_view_view_bottom_guideline"
+                    app:layout_constraintEnd_toStartOf="@+id/video_player_view_view_end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/video_player_view_view_start_guideline" />
+
+                <ImageView
+                    android:id="@+id/video_player_view_cancel_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()-> viewModel.onRecordingInfoVideoPlayerCancel()}"
+                    android:src="@drawable/ic_cancel_icon"
+                    app:layout_constraintBottom_toBottomOf="@+id/video_player_view_cancel_icon_bottom_guideline"
+                    app:layout_constraintEnd_toEndOf="@+id/video_player_view_cancel_icon_end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/video_player_view_cancel_icon_Left_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/video_player_view_record_info_title_top_guideline" />
+
+                <TextView
+                    android:id="@+id/video_player_view_recording_info_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recording_info"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/video_player_view_cancel_icon_bottom_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/video_player_view_video_left_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/video_player_view_cancel_icon_top_guideline" />
+
+                <SeekBar
+                    android:id="@+id/video_player_view_seekbar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="false"
+                    android:max="100"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp"
+                    android:progress="0"
+                    android:progressDrawable="@drawable/player_seekbar_background"
+                    android:scrollbarAlwaysDrawVerticalTrack="true"
+                    android:scrollbars="horizontal"
+                    android:thumb="@drawable/player_seekbar_thumb"
+                    app:layout_constraintEnd_toStartOf="@+id/video_player_view_outer_stop_end_guideline"
+                    app:layout_constraintStart_toEndOf="@+id/video_player_view_play_outer_start_guideline"
+                    app:layout_constraintTop_toTopOf="@+id/video_player_view_seekbar_top_guideline" />
+
+                <TextView
+                    android:id="@+id/video_player_view_video_current_duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@+id/video_player_view_seekbar_bottom_guideline"
+                    app:layout_constraintStart_toEndOf="@+id/video_player_view_play_outer_start_guideline" />
+
+                <TextView
+                    android:id="@+id/video_player_view_Video_total_duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@+id/video_player_view_seekbar_bottom_guideline"
+                    app:layout_constraintEnd_toStartOf="@+id/video_player_view_outer_stop_end_guideline" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_pause_outer_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.7166" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_title_start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.6692" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_play_outer_start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.6676" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_play_start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.6860" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_stop_start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9218" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_pause_start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.7871" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_back_btn_start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.7779" />
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_pause1_start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.8039" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_pause1_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.81010" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_pause2_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.8208" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_pause_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.8361" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_outer_stop_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9540" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_pause2_start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.8147" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_play_outer_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.7166" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_back_btn_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9555" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_title_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9341" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_title_top_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.2749" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_play_outer_top_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.4536" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_play_outer_top_guideline2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.4536" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_play_top_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.4879" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_play_outer_bottom_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.5635" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_back_btn_bottom_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.8934" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_play_bottom_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.5326" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_title_bottom_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.4192" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_play_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.7029" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_stop_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.93721" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_back_btn_top_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.7835" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_video_left_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.0444" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_cancel_icon_Left_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9418" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_cancel_icon_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9693" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_seekbar_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9555" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_seekbar_top_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.6185" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_seekbar_bottom_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.7247" />
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_view_bottom_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.1919" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_record_info_title_top_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.0580" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_cancel_icon_top_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.0615" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_cancel_icon_bottom_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.1202" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_view_start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.0267" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_stop_outer_start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9050" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/video_player_view_view_end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9777" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

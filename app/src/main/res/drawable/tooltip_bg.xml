@@ -1,0 +1,24 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="160dp"
+    android:height="100dp"
+    android:viewportWidth="160"
+    android:viewportHeight="100">
+
+    <!-- Main rounded rectangle -->
+    <path
+        android:fillColor="@color/color_lightgrey"
+        android:pathData="M0,20
+                          a8,8 0 0 1 8,-8
+                          h144
+                          a8,8 0 0 1 8,8
+                          v72
+                          a8,8 0 0 1 -8,8
+                          h-144
+                          a8,8 0 0 1 -8,-8
+                          z" />
+
+    <!-- Arrow (top center) -->
+    <path
+        android:fillColor="@color/color_lightgrey"
+        android:pathData="M65,20 l15,-15 l15,15 z" />
+</vector>

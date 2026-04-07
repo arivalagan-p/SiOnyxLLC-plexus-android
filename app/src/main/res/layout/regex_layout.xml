@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/includedLayoutRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TableLayout
+        android:id="@+id/password_rules_table"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow>
+
+            <ImageView
+                android:id="@+id/icon_length"
+                android:paddingStart="15dp"
+                android:src="@drawable/ic_circle_cancel_red"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/text_length"
+                android:text="@string/pwd_error_msg1"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </TableRow>
+
+        <TableRow>
+
+            <ImageView
+                android:id="@+id/icon_special"
+                android:paddingStart="15dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_circle_cancel_red"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/text_special"
+                android:text="@string/pwd_error_msg2"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </TableRow>
+
+        <TableRow>
+
+            <ImageView
+                android:id="@+id/icon_upper"
+                android:paddingStart="15dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_circle_cancel_red"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/text_upper"
+                android:text="@string/pwd_error_msg3"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </TableRow>
+
+        <TableRow>
+
+            <ImageView
+                android:id="@+id/icon_lower"
+                android:paddingStart="15dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_circle_cancel_red"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/text_lower"
+                android:text="@string/pwd_error_msg4"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </TableRow>
+
+        <TableRow>
+
+            <ImageView
+                android:id="@+id/icon_number"
+                android:paddingStart="15dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_circle_cancel_red"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:id="@+id/text_number"
+                android:text="@string/pwd_error_msg5"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+        </TableRow>
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

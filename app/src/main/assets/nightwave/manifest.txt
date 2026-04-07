@@ -1,0 +1,13 @@
+{
+   "Camera_Model":"SIOYNX NIGHTWAVE D1 CRV-500C",
+   "versions": {
+      "Release":"1.0.10",
+      "FPGA":"0038",
+      "RISCV":"2.73",
+      "WIFI_RTOS":"3.2.4.0-2.2.0",
+      "WIFI_BOOT": "",
+      "WIFI_BLE": ""
+   },
+   "sequence":["RISCV","reboot_fpga", "wait 15","WIFI_RTOS"],
+    "release_notes":"Minor bug fixes."
+}

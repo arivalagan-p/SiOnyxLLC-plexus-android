@@ -1,0 +1,1244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.sionyx.plexus.ui.home.HomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/recording_info_screen_layouts"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--gallery layout view container-->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/recording_video_player_layout_vertical_guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/land_recycler_view_vertical_start_margin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/recording_video_player_layout_vertical_guideline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/recycler_view_container_view_layout_margin_end" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/recording_video_player_layout_horizontal_guideline_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/recycler_view_container_view_layout_margin_top" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/recording_video_player_layout_horizontal_guideline_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="@dimen/recycler_view_container_view_layout_margin_bottom" />
+
+        <!--Recording info layout: start-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/recording_info_Layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/shape_rectangle_background"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/recording_video_player_layout_horizontal_guideline_bottom"
+            app:layout_constraintEnd_toEndOf="@+id/recording_video_player_layout_vertical_guideline_end"
+            app:layout_constraintStart_toStartOf="@+id/recording_video_player_layout_vertical_guideline_start"
+            app:layout_constraintTop_toTopOf="@+id/recording_video_player_layout_horizontal_guideline_top">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/recording_info_cancel_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.onCancelGalleryView()}"
+                android:src="@drawable/ic_cancel_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/recording_info_cancel_icon_horizontal_guideline_bottom"
+                app:layout_constraintEnd_toEndOf="@+id/recording_info_cancel_icon_vertical_guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/recording_info_cancel_icon_vertical_guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/recording_info_cancel_icon_horizontal_guideline_top" />
+
+            <!--recording info layout cancel icon guideline view-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_info_cancel_icon_horizontal_guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.0743" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_info_cancel_icon_horizontal_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.1322" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_info_cancel_icon_vertical_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.9232" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_info_cancel_icon_vertical_guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.9525" />
+
+            <!--recording info video title: guideline-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_info_video_title_vertical_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.0516" />
+
+            <TextView
+                android:id="@+id/recording_info_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:text="@string/recording_info"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/recording_info_cancel_icon"
+                app:layout_constraintStart_toStartOf="@+id/recording_info_video_title_vertical_guideline_start"
+                app:layout_constraintTop_toTopOf="@+id/recording_info_cancel_icon" />
+
+            <View
+                android:id="@+id/recording_info_View"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/recording_info_cancel_icon_horizontal_guideline_bottom" />
+
+            <!-- recording info video thumbnail: guideline-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_info_inner_layout_vertical_guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.4002" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_info_inner_layout_vertical_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.0516" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_info_inner_layout_vertical_guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.2369" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_info_inner_layout_vertical_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5840" />
+
+            <!-- recording info video title: guideline-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_info_video_title_vertical_guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.6005" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_info_video_title_vertical_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.6611" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/recording_info_inner_layout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="H,16:9"
+                app:layout_constraintEnd_toEndOf="@+id/recording_info_inner_layout_vertical_guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/recording_info_inner_layout_vertical_guideline_start"
+                app:layout_constraintTop_toTopOf="@+id/recording_info_inner_layout_vertical_guideline_top">
+
+                <!--   recording info play icon background: guideline-->
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_play_button_background_vertical_guideline_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.626" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_play_button_background_vertical_guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.384" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_play_button_background_horizontal_guideline_top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.38" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_info_play_button_background_horizontal_guideline_bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.6201" />
+
+                <ImageView
+                    android:id="@+id/recording_info_video_thumbnail"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:onClick="@{() -> viewModel.onSelectImageInfo()}"
+                    android:scaleType="fitXY"
+                    app:layout_constraintDimensionRatio="H,16:9"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_camera_background" />
+
+                <ImageView
+                    android:id="@+id/recording_info_video_play_button"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:onClick="@{() -> viewModel.onSelectRecordingInfoPlay()}"
+                    android:src="@drawable/ic_play_filled"
+                    app:layout_constraintBottom_toBottomOf="@+id/recording_info_play_button_background_horizontal_guideline_bottom"
+                    app:layout_constraintEnd_toEndOf="@+id/recording_info_play_button_background_vertical_guideline_end"
+                    app:layout_constraintStart_toStartOf="@+id/recording_info_play_button_background_vertical_guideline_start"
+                    app:layout_constraintTop_toTopOf="@+id/recording_info_play_button_background_horizontal_guideline_top" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Recording info details holder: guideline-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_info_detail_holder_horizontal_guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.2369" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_info_detail_holder_horizontal_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5840" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_info_detail_holder_vertical_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.4476" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_info_detail_holder_vertical_guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.8647" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/recording_info_detail_holder"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/recording_info_detail_holder_horizontal_guideline_bottom"
+                app:layout_constraintEnd_toEndOf="@+id/recording_info_delete_btn_vertical_guideline_end"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/recording_info_detail_holder_vertical_guideline_start"
+                app:layout_constraintTop_toTopOf="@+id/recording_info_detail_holder_horizontal_guideline_top"
+                app:layout_constraintVertical_bias="0.0">
+
+                <ScrollView
+                    android:id="@+id/recording_info_scroll_view"
+                    style="@style/scrollbar_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp">
+
+                        <TextView
+                            android:id="@+id/heading_video_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="@string/date"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/recording_info_detail_holder_video_date"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+                        <TextView
+                            android:id="@+id/heading_video_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="@string/time"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/recording_info_detail_holder_video_time"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/recording_info_detail_holder_video_time" />
+
+                        <TextView
+                            android:id="@+id/heading_video_duration"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="@string/duration"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/recording_info_detail_holder_video_duration"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/recording_info_detail_holder_video_duration" />
+
+                        <TextView
+                            android:id="@+id/heading_video_location"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="@string/location"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/recording_info_detail_holder_video_location"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/recording_info_detail_holder_video_location" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/recording_info_detail_holder_line_divider_horizontal_guideline_end"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.5" />
+
+                        <TextView
+                            android:id="@+id/recording_info_detail_holder_video_date"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toTopOf="@+id/recording_info_detail_holder_video_time"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/recording_info_detail_holder_line_divider_horizontal_guideline_end"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+                        <TextView
+                            android:id="@+id/recording_info_detail_holder_video_time"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:gravity="end"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toTopOf="@+id/recording_info_detail_holder_video_duration"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/recording_info_detail_holder_line_divider_horizontal_guideline_end"
+                            app:layout_constraintTop_toBottomOf="@+id/recording_info_detail_holder_video_date" />
+
+                        <TextView
+                            android:id="@+id/recording_info_detail_holder_video_duration"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:gravity="end"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toTopOf="@+id/recording_info_detail_holder_video_location"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/recording_info_detail_holder_line_divider_horizontal_guideline_end"
+                            app:layout_constraintTop_toBottomOf="@+id/recording_info_detail_holder_video_time" />
+
+                        <TextView
+                            android:id="@+id/recording_info_detail_holder_video_location"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:gravity="end"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/recording_info_detail_holder_line_divider_horizontal_guideline_end"
+                            app:layout_constraintTop_toBottomOf="@+id/recording_info_detail_holder_video_duration" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </ScrollView>
+
+                <ScrollView
+                    android:id="@+id/image_info_scroll_view"
+                    style="@style/scrollbar_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:visibility="visible">
+
+                        <TextView
+                            android:id="@+id/heading_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="@string/date"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/recording_info_detail_holder_date"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+                        <TextView
+                            android:id="@+id/heading_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="@string/time"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/recording_info_detail_holder_time"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/recording_info_detail_holder_time" />
+
+                        <TextView
+                            android:id="@+id/heading_model"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="@string/model"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/recording_info_detail_holder_model"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/recording_info_detail_holder_model" />
+
+                        <TextView
+                            android:id="@+id/heading_software"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="@string/software"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/recording_info_detail_holder_software"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/recording_info_detail_holder_software" />
+
+                        <TextView
+                            android:id="@+id/heading_aperture"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="@string/aperture"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/recording_info_detail_holder_aperture"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/recording_info_detail_holder_aperture" />
+
+                        <TextView
+                            android:id="@+id/heading_focal_length"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="@string/focal_length"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/recording_info_detail_holder_focal_length"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/recording_info_detail_holder_focal_length" />
+
+                        <TextView
+                            android:id="@+id/heading_resolution"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="@string/resolution"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/recording_info_detail_holder_resolution"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/recording_info_detail_holder_resolution" />
+
+                        <TextView
+                            android:id="@+id/heading_image_location"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:text="@string/location"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/recording_info_detail_holder_location"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/recording_info_detail_holder_location" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/image_info_detail_holder_line_divider_horizontal_guideline_end"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.5" />
+
+                        <TextView
+                            android:id="@+id/recording_info_detail_holder_date"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toTopOf="@+id/recording_info_detail_holder_time"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/image_info_detail_holder_line_divider_horizontal_guideline_end"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+                        <TextView
+                            android:id="@+id/recording_info_detail_holder_time"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:gravity="end"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toTopOf="@+id/recording_info_detail_holder_model"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/image_info_detail_holder_line_divider_horizontal_guideline_end"
+                            app:layout_constraintTop_toBottomOf="@+id/recording_info_detail_holder_date" />
+
+                        <TextView
+                            android:id="@+id/recording_info_detail_holder_model"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:gravity="end"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toTopOf="@+id/recording_info_detail_holder_software"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/image_info_detail_holder_line_divider_horizontal_guideline_end"
+                            app:layout_constraintTop_toBottomOf="@+id/recording_info_detail_holder_time" />
+
+                        <TextView
+                            android:id="@+id/recording_info_detail_holder_software"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:gravity="end"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toTopOf="@+id/recording_info_detail_holder_aperture"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/image_info_detail_holder_line_divider_horizontal_guideline_end"
+                            app:layout_constraintTop_toBottomOf="@+id/recording_info_detail_holder_model" />
+
+                        <TextView
+                            android:id="@+id/recording_info_detail_holder_aperture"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:gravity="end"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toTopOf="@+id/recording_info_detail_holder_focal_length"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/image_info_detail_holder_line_divider_horizontal_guideline_end"
+                            app:layout_constraintTop_toBottomOf="@+id/recording_info_detail_holder_software" />
+
+                        <TextView
+                            android:id="@+id/recording_info_detail_holder_focal_length"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:gravity="end"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toTopOf="@+id/recording_info_detail_holder_resolution"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/image_info_detail_holder_line_divider_horizontal_guideline_end"
+                            app:layout_constraintTop_toBottomOf="@+id/recording_info_detail_holder_aperture" />
+
+                        <TextView
+                            android:id="@+id/recording_info_detail_holder_resolution"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:gravity="end"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toTopOf="@+id/recording_info_detail_holder_location"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/image_info_detail_holder_line_divider_horizontal_guideline_end"
+                            app:layout_constraintTop_toBottomOf="@+id/recording_info_detail_holder_focal_length" />
+
+                        <TextView
+                            android:id="@+id/recording_info_detail_holder_location"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:gravity="end"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/image_info_detail_holder_line_divider_horizontal_guideline_end"
+                            app:layout_constraintTop_toBottomOf="@+id/recording_info_detail_holder_resolution" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </ScrollView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/recording_info_video_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/recording_info_video_title_vertical_guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/recording_info_inner_layout" />
+
+            <!-- recording info social media constraint: guideline-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_info_social_media_vertical_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.0516" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_info_social_media_vertical_guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.3974" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_info_social_media_horizontal_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.8650" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_info_social_media_horizontal_guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.7685" />
+
+            <!--recording info social media layout-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/recording_info_social_media_layout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/recording_info_social_media_horizontal_guideline_bottom"
+                app:layout_constraintEnd_toEndOf="@+id/recording_info_social_media_vertical_guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/recording_info_social_media_vertical_guideline_start"
+                app:layout_constraintTop_toTopOf="@+id/recording_info_social_media_horizontal_guideline_top"
+                app:layout_constraintVertical_bias="1.0">
+
+                <ImageView
+                    android:id="@+id/recording_info_facebook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/recording_info_youtube"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_facebook" />
+
+                <ImageView
+                    android:id="@+id/recording_info_youtube"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/recording_info_facebook"
+                    app:layout_constraintStart_toEndOf="@+id/recording_info_instagram"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_youtube" />
+
+                <ImageView
+                    android:id="@+id/recording_info_instagram"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/recording_info_youtube"
+                    app:layout_constraintStart_toEndOf="@+id/recording_info_twitter"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_instagram" />
+
+                <ImageView
+                    android:id="@+id/recording_info_twitter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/recording_info_instagram"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_tweeter" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Delete Recording info btn: guideline-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_info_delete_btn_vertical_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.4476" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_info_delete_btn_vertical_guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.8884" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_info_delete_btn_horizontal_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.7961" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_info_delete_btn_horizontal_guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.8347" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_info_back_btn_horizontal_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.9449" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_info_back_btn_horizontal_guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.8920" />
+
+
+            <TextView
+                android:id="@+id/recording_info_delete_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_stroke"
+                android:gravity="center"
+                android:onClick="@{() -> viewModel.onSelectRecordingInfoDelete()}"
+                android:padding="5dp"
+                android:text="@string/delete_recording"
+                android:textColor="@color/white"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toTopOf="@+id/recording_info_delete_btn_horizontal_guideline_top"
+                app:layout_constraintEnd_toStartOf="@+id/recording_info_delete_btn_vertical_guideline_end"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/recording_info_delete_btn_vertical_guideline_start" />
+
+            <TextView
+                android:id="@+id/recording_info_back_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_stroke"
+                android:gravity="center"
+                android:onClick="@{() -> viewModel.onSelectRecordingInfoBack()}"
+                android:padding="5dp"
+                android:text="@string/back"
+                android:textColor="@color/white"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toTopOf="@+id/recording_info_back_btn_horizontal_guideline_bottom"
+                app:layout_constraintEnd_toStartOf="@+id/recording_info_delete_btn_vertical_guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/recording_info_delete_btn_vertical_guideline_start"
+                app:layout_constraintTop_toTopOf="@+id/recording_info_back_btn_horizontal_guideline_top" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--Recording info layout: end-->
+
+        <!--Recording video player screen: start-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/recording_video_player_Layout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/shape_rectangle_background"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/recording_video_player_layout_horizontal_guideline_bottom"
+            app:layout_constraintEnd_toEndOf="@+id/recording_video_player_layout_vertical_guideline_end"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/recording_video_player_layout_vertical_guideline_start"
+            app:layout_constraintTop_toTopOf="@+id/recording_video_player_layout_horizontal_guideline_top"
+            app:layout_constraintVertical_bias="1.0">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/recording_video_player_cancel_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.onCancelGalleryView()}"
+                android:src="@drawable/ic_cancel_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/recording_video_player_cancel_icon_horizontal_guideline_bottom"
+                app:layout_constraintEnd_toEndOf="@+id/recording_video_player_cancel_icon_vertical_guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/recording_video_player_cancel_icon_vertical_guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/recording_video_player_cancel_icon_horizontal_guideline_top" />
+
+            <!--recording info layout cancel icon guideline view-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_video_player_cancel_icon_horizontal_guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.0743" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_video_player_cancel_icon_horizontal_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.1322" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_video_player_cancel_icon_vertical_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.9232" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_video_player_cancel_icon_vertical_guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.9525" />
+
+            <!-- recording video_player title: guideline-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_video_player_video_title_vertical_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.0516" />
+
+            <TextView
+                android:id="@+id/recording_video_player_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:text="@string/recording_info"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/recording_video_player_cancel_icon"
+                app:layout_constraintStart_toStartOf="@+id/recording_video_player_video_title_vertical_guideline_start"
+                app:layout_constraintTop_toTopOf="@+id/recording_video_player_cancel_icon" />
+
+            <View
+                android:id="@+id/recording_video_player_View"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/recording_video_player_cancel_icon_horizontal_guideline_bottom" />
+
+            <!--  recording video player video-view: guideline-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_video_player_video_view_horizontal_guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.2369" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_video_player_video_view_horizontal_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.8705" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_video_player_video_view_vertical_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.0516" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_video_player_video_view_vertical_guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.6500" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/recorded_video_image_view"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="H,16:9"
+                app:layout_constraintEnd_toStartOf="@+id/recording_video_player_video_view_vertical_guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/recording_video_player_video_view_vertical_guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/recording_video_player_video_view_horizontal_guideline_top">
+
+                <VideoView
+                    android:id="@+id/recording_video_player_video_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:src="@drawable/ic_camera_background"
+                    app:layout_constraintDimensionRatio="H,16:9"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/recording_video_player_image_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_camera_background"
+                    android:visibility="gone"
+                    app:layout_constraintDimensionRatio="H,16:9"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/recording_video_player_play_button"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:onClick="@{()-> viewModel.onSelectRecordingInfoVideoPlayButton()}"
+                    app:layout_constraintBottom_toBottomOf="@+id/recording_video_player_video_view_play_icon_horizontal_guideline_bottom"
+                    app:layout_constraintEnd_toEndOf="@+id/recording_video_player_video_view_play_icon_vertical_guideline_end"
+                    app:layout_constraintStart_toStartOf="@+id/recording_video_player_video_view_play_icon_vertical_guideline_start"
+                    app:layout_constraintTop_toTopOf="@+id/recording_video_player_video_view_play_icon_horizontal_guideline_top"
+                    app:srcCompat="@drawable/ic_play_filled" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_video_player_video_view_play_icon_horizontal_guideline_top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.38" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_video_player_video_view_play_icon_horizontal_guideline_bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.6201" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_video_player_video_view_play_icon_vertical_guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.384" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_video_player_video_view_play_icon_vertical_guideline_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.626" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--  recording video player-video title: guideline-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_video_player_title_horizontal_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.9476" />
+
+            <TextView
+                android:id="@+id/recording_video_player_video_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/recording_video_player_video_view_vertical_guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/recorded_video_image_view" />
+
+            <!-- recording video player inner layout : guideline-->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_video_player_inner_layout_horizontal_guideline_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.4986" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_video_player_inner_layout_horizontal_guideline_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.7438" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_video_player_inner_layout_vertical_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.6676" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/recording_video_player_inner_layout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/recording_video_player_inner_layout_horizontal_guideline_bottom"
+                app:layout_constraintEnd_toStartOf="@+id/recording_video_player_cancel_icon_vertical_guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/recording_video_player_inner_layout_vertical_guideline_start"
+                app:layout_constraintTop_toTopOf="@+id/recording_video_player_inner_layout_horizontal_guideline_top">
+
+                <!--recording video player-play icon: guideline-->
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_video_player_play_icon_horizontal_guideline_bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.4494" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_video_player_play_icon_vertical_guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.0805" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_video_player_play_icon_vertical_guideline_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.2057" />
+
+                <!--recording video player-pause icon: guideline-->
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_video_player_pause_icon_vertical_guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.4373" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_video_player_pause_icon_vertical_guideline_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5626" />
+
+                <!--recording video player-stop icon: guideline-->
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_video_player_stop_icon_vertical_guideline_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.8000" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/recording_video_player_stop_icon_vertical_guideline_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9253" />
+
+                <ImageView
+                    android:id="@+id/recording_video_player_play"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:onClick="@{() -> viewModel.onSelectRecordingInfoVideoPlay()}"
+                    android:src="@drawable/ic_play_outline"
+                    app:layout_constraintBottom_toBottomOf="@+id/recording_video_player_play_icon_horizontal_guideline_bottom"
+                    app:layout_constraintEnd_toEndOf="@+id/recording_video_player_play_icon_vertical_guideline_end"
+                    app:layout_constraintStart_toStartOf="@+id/recording_video_player_play_icon_vertical_guideline_start"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/recording_video_player_pause"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:onClick="@{() -> viewModel.onSelectRecordingInfoVideoPause()}"
+                    android:src="@drawable/ic_pause_outline"
+                    app:layout_constraintBottom_toBottomOf="@+id/recording_video_player_play_icon_horizontal_guideline_bottom"
+                    app:layout_constraintEnd_toEndOf="@+id/recording_video_player_pause_icon_vertical_guideline_end"
+                    app:layout_constraintStart_toStartOf="@+id/recording_video_player_pause_icon_vertical_guideline_start"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/recording_image_update"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="0/0"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size"
+                    app:layout_constraintBottom_toBottomOf="@+id/recording_video_player_play_icon_horizontal_guideline_bottom"
+                    app:layout_constraintEnd_toEndOf="@+id/recording_video_player_pause_icon_vertical_guideline_end"
+                    app:layout_constraintStart_toStartOf="@+id/recording_video_player_pause_icon_vertical_guideline_start"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/recording_video_player_stop"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:onClick="@{() -> viewModel.onSelectRecordingInfoVideoStop()}"
+                    android:src="@drawable/ic_stop_outline"
+                    app:layout_constraintBottom_toBottomOf="@+id/recording_video_player_play_icon_horizontal_guideline_bottom"
+                    app:layout_constraintEnd_toEndOf="@+id/recording_video_player_stop_icon_vertical_guideline_end"
+                    app:layout_constraintStart_toStartOf="@+id/recording_video_player_stop_icon_vertical_guideline_start"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <SeekBar
+                    android:id="@+id/recording_video_player_seekbar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="false"
+                    android:max="100"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp"
+                    android:progress="0"
+                    android:progressDrawable="@drawable/player_seekbar_background"
+                    android:scrollbarAlwaysDrawVerticalTrack="true"
+                    android:scrollbars="horizontal"
+                    android:thumb="@drawable/player_seekbar_thumb"
+                    app:layout_constraintBottom_toTopOf="@+id/recording_video_player_video_current_duration"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/recording_video_player_inner_layout" />
+
+                <TextView
+                    android:id="@+id/recording_video_player_video_current_duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/recording_video_player_seekbar" />
+
+                <TextView
+                    android:id="@+id/recording_video_player_video_total_duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/recording_video_player_seekbar"
+                    app:layout_constraintTop_toBottomOf="@+id/recording_video_player_seekbar" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_video_player_back_btn_horizontal_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.7123" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/recording_video_player_back_btn_horizontal_guideline_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.854" />
+
+            <TextView
+                android:id="@+id/recording_video_player_back_buttton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_stroke"
+                android:backgroundTint="@color/white"
+                android:gravity="center"
+                android:onClick="@{() -> viewModel.onSelectRecordingInfoVideoBack()}"
+                android:padding="5dp"
+                android:text="@string/back"
+                android:textColor="@color/black"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toTopOf="@+id/recording_video_player_title_horizontal_guideline_bottom"
+                app:layout_constraintEnd_toEndOf="@+id/recording_video_player_cancel_icon_vertical_guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/recording_video_player_back_btn_horizontal_guideline_start" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--Recording video player screen: end-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

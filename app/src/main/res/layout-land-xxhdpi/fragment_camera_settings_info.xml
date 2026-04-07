@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ScrollView
+            style="@style/scrollbar_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/scroll_view_vertical_guideline_start"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <!-- Nightwave settings layout-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/nightwave_settings_info_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/tv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@id/nightwave_brightness_seekbar"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="3"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@id/tv3"
+                        app:layout_constraintStart_toStartOf="@id/tv1"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="6"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@+id/nightwave_brightness_seekbar"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <SeekBar
+                        android:id="@+id/nightwave_brightness_seekbar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:indeterminate="false"
+                        android:max="100"
+                        android:progress="0"
+                        android:progressDrawable="@drawable/custom_seekbar"
+                        android:thumb="@drawable/seek_bar_thumb"
+                        app:layout_constraintBottom_toTopOf="@+id/nightwave_progress_vertical_icon_guideline_bottom"
+                        app:layout_constraintEnd_toEndOf="@+id/nightwave_image_vertical_icon_guideline_end"
+                        app:layout_constraintStart_toStartOf="@+id/nightwave_progress_vertical_icon_guideline_start"
+                        app:layout_constraintTop_toBottomOf="@+id/tv1" />
+
+                    <ImageView
+                        android:id="@+id/nightwave_brightness_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_ev"
+                        app:layout_constraintBottom_toBottomOf="@+id/nightwave_brightness_seekbar"
+                        app:layout_constraintStart_toStartOf="@id/nightwave_image_icon_vertical_icon_guideline_start"
+                        app:layout_constraintTop_toTopOf="@+id/nightwave_brightness_seekbar" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/nightwave_seek_bar_vertical_icon_guideline_start"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.2496" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/nightwave_progress_vertical_icon_guideline_start"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent=" 0.3169" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/nightwave_image_vertical_icon_guideline_end"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.8177" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/nightwave_progress_vertical_icon_guideline_top"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent="0.2680" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/nightwave_progress_vertical_icon_guideline_bottom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent="0.3608" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/nightwave_image_icon_vertical_icon_guideline_start"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.1041" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <!-- opsin settings layout-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/opsin_settings_info_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <!--brightness -->
+                    <TextView
+                        android:id="@+id/brightness_tv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:paddingStart="2dp"
+                        android:text="@string/_5"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@id/opsin_brightness_seekbar"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlSymmetry" />
+
+                    <TextView
+                        android:id="@+id/brightness_tv3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="@string/_50"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@id/opsin_brightness_seekbar"
+                        app:layout_constraintStart_toStartOf="@id/opsin_brightness_seekbar"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/brightness_tv5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="@string/_100"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@+id/opsin_brightness_seekbar"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <SeekBar
+                        android:id="@+id/opsin_brightness_seekbar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:indeterminate="false"
+                        android:max="100"
+                        android:progress="0"
+                        android:progressDrawable="@drawable/custom_seekbar"
+                        android:thumb="@drawable/seek_bar_thumb"
+                        app:layout_constraintBottom_toTopOf="@+id/progress_vertical_icon_guideline_bottom"
+                        app:layout_constraintEnd_toEndOf="@+id/image_vertical_icon_guideline_end"
+                        app:layout_constraintStart_toStartOf="@+id/progress_vertical_icon_guideline_start"
+                        app:layout_constraintTop_toBottomOf="@+id/brightness_tv1" />
+
+                    <ImageView
+                        android:id="@+id/brightness_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_camera_brightness"
+                        app:layout_constraintBottom_toBottomOf="@+id/opsin_brightness_seekbar"
+                        app:layout_constraintStart_toStartOf="@id/image_icon_vertical_icon_guideline_start"
+                        app:layout_constraintTop_toTopOf="@+id/opsin_brightness_seekbar" />
+
+                    <!--Ev-->
+                    <TextView
+                        android:id="@+id/opsin_tv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="@string/_2_5"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@id/opsin_ev_seekbar"
+                        app:layout_constraintTop_toBottomOf="@+id/opsin_brightness_seekbar" />
+
+                    <TextView
+                        android:id="@+id/opsin_tv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="@string/_0_5"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@id/opsin_tv3"
+                        app:layout_constraintStart_toStartOf="@id/opsin_tv1"
+                        app:layout_constraintTop_toBottomOf="@+id/opsin_brightness_seekbar" />
+
+                    <TextView
+                        android:id="@+id/opsin_tv3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="@string/_1_5"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@+id/opsin_ev_seekbar"
+                        app:layout_constraintTop_toBottomOf="@+id/opsin_brightness_seekbar" />
+
+                    <SeekBar
+                        android:id="@+id/opsin_ev_seekbar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:indeterminate="false"
+                        android:max="100"
+                        android:progress="0"
+                        android:progressDrawable="@drawable/custom_seekbar"
+                        android:thumb="@drawable/seek_bar_thumb"
+                        app:layout_constraintEnd_toEndOf="@+id/image_vertical_icon_guideline_end"
+                        app:layout_constraintStart_toStartOf="@+id/progress_vertical_icon_guideline_start"
+                        app:layout_constraintTop_toBottomOf="@+id/opsin_tv1" />
+
+                    <ImageView
+                        android:id="@+id/ev_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_ev"
+                        app:layout_constraintBottom_toBottomOf="@+id/opsin_ev_seekbar"
+                        app:layout_constraintStart_toStartOf="@id/image_icon_vertical_icon_guideline_start"
+                        app:layout_constraintTop_toTopOf="@+id/opsin_ev_seekbar" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/seek_bar_vertical_icon_guideline_start"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.2496" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/progress_vertical_icon_guideline_start"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent=" 0.3169" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/image_vertical_icon_guideline_end"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.8177" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/progress_vertical_icon_guideline_top"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent="0.2680" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/progress_vertical_icon_guideline_bottom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent="0.3608" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/image_icon_vertical_icon_guideline_start"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.1041" />
+
+                    <!-- brightness guideline-->
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/brightness_seek_bar_vertical_icon_guideline_top"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent="0.4364" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/brightness_seek_bar_vertical_icon_guideline_bottom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent="0.5292" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/scroll_view_vertical_guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9500" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
